@@ -1,0 +1,63 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>240</x><y>90</y><w>210</w><h>110</h></coordinates><panel_attributes>_Customers_
+--
+customerID			 INT		PRIMARY_KEY
+firstName				 VARCHAR(50)
+lastName				 VARCHAR(50)
+email (username)		 VARCHAR(50)
+password				 VARCHAR(500)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>770</x><y>70</y><w>210</w><h>180</h></coordinates><panel_attributes>__Reservations__
+--
+reservationID		INT PRIMARY_KEY
+customerID		INT
+hotelID			INT
+checkIn			DATE
+checkOut			DATE
+roomSize			INT
+guests			INT
+wifi				BOOLEAN
+breakfast			BOOLEAN
+parking			BOOLEAN</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>100</y><w>350</w><h>50</h></coordinates><panel_attributes>lt=-&gt;
+m1=1
+m2=0, 1, many
+Customer has Reservations</panel_attributes><additional_attributes>10;20;330;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1270</x><y>100</y><w>210</w><h>110</h></coordinates><panel_attributes>_Hotels_
+--
+hotelID		INT	PRIMARY_KEY
+hotelName		VARCHAR(50)
+hotelAddress		VARCHAR(50)
+hotelPictureURL	VARCHAR(100)
+hotelNotes		VARCHAR(100)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>970</x><y>110</y><w>320</w><h>50</h></coordinates><panel_attributes>lt=-&gt;
+m1=1
+m2=0, 1, many
+Hotel has Reservations</panel_attributes><additional_attributes>300;20;10;20</additional_attributes></element><element><id>UMLNote</id><coordinates><x>760</x><y>560</y><w>300</w><h>130</h></coordinates><panel_attributes>Number of days per reservation 
+can be calculated based on start and end dates
+
+Prices can all be calculated based on #days, 
+size, #guests, and amenities
+
+Loyalty points can be calculated based on #days</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>210</x><y>550</y><w>300</w><h>130</h></coordinates><panel_attributes>Reservations can be searched based on 
+customerID to get all or by 
+reservationID to get one
+
+Customer's total loyalty points can be pulled 
+from each reservation and the total calculated 
+when displayed on the page</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>420</x><y>700</y><w>340</w><h>70</h></coordinates><panel_attributes>View ReservationInfo
+--
+used to get information for ReservaionLookup page
+where customerID and reservationID
+select hotelID, startDate, endDate, ...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLPackage</id><coordinates><x>1000</x><y>700</y><w>410</w><h>70</h></coordinates><panel_attributes>View LoyaltyPoints
+--
+used to get information for LoyaltyPoints page
+where customerID
+select reservationID, hotel info, startDate, endDate, calculate points</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1270</x><y>370</y><w>210</w><h>100</h></coordinates><panel_attributes>_Attractions_
+--
+attractionID		INT	PRIMARY_KEY
+hotelID			INT
+name			VARCHAR(50)
+description		VARCHAR(500)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1360</x><y>200</y><w>150</w><h>190</h></coordinates><panel_attributes>lt=-&gt;
+m1=1
+m2=0, 1, many
+Hotel has Attractions</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>UMLNote</id><coordinates><x>980</x><y>370</y><w>240</w><h>90</h></coordinates><panel_attributes>Assuming:
+	-Attractions are hotel specific
+	-We don't have to worry about
+		-attraction prices
+		-booking attractions with reservations</panel_attributes><additional_attributes></additional_attributes></element></diagram>
