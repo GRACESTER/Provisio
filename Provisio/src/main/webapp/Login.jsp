@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 
  <%@page import="java.sql.*"%>
-=======
     <%@page import="java.sql.*"%>
 
     <%@page import="javaBeans.LoginSQL"%>
@@ -179,7 +178,7 @@ h2 {
 	<jsp:setProperty name="javaBeans" property="userPassword" param="password"/>
 	
 	
-	<jsp:setProperty name="javaBeans" property="runTime" param="run"/>
+	
 	
 	
 	<div class="container">
@@ -187,10 +186,12 @@ h2 {
         <div class="form-container form-left">
             <h2>Please Sign-in</h2>
             
-            <form action="LoginServlet" method="post">
+            <!-- <form action="LoginServlet" method="post"> -->
+            	<jsp:setProperty name="javaBeans" property="runTime" param="run"/>
+				<form method="post">
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" name="username" class="form-control"/>
+                    <input type="email" name="userEmailField" class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label>Password</label>

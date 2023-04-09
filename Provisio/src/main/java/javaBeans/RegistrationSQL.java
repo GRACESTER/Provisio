@@ -1,25 +1,29 @@
 /*
 
-* Joel Mardock
+* Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
 
-* 02/12/2023
+* 04-09-2023
 
-* Module 8 Programming Assignment
-
-*
-
-* This code will receive the values from the Form.jsp. After that, it will call the RunInsertQuery method and
-
-* will put the data into the database table.
+* Module 6.1: Web Dev Assignment
 
 *
+
+* This code will receive the values from the Registration.jsp. It will hash the password received, and insert data into a MySQL Database.
 
 * The data is called back directly from the ResultSet which is populated after the RunInsertQuery method has completed execution
 
+* Encryption code from the following source:
+ 	Bilal-hungund
+	https://www.geeksforgeeks.org/sha-256-hash-in-java/	
+* 
 */
 
 package javaBeans;
 import java.sql.*;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class RegistrationSQL 
 {
@@ -88,6 +92,38 @@ public class RegistrationSQL
 		RunInsertQuery();
 
 	}
+	
+	// Start Encryption
+	
+	public static byte[] getSHA(String input) throws NoSuchAlgorithmException
+    {
+        // Static getInstance method is called with hashing SHA
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
+ 
+        // digest() method called
+        // to calculate message digest of an input
+        // and return array of byte
+        return md.digest(input.getBytes(StandardCharsets.UTF_8));
+    }
+     
+    public static String toHexString(byte[] hash)
+    {
+        // Convert byte array into signum representation
+        BigInteger number = new BigInteger(1, hash);
+ 
+        // Convert message digest into hex value
+        StringBuilder hexString = new StringBuilder(number.toString(16));
+ 
+        // Pad with leading zeros
+        while (hexString.length() < 64)
+        {
+            hexString.insert(0, '0');
+        }
+ 
+        return hexString.toString();
+    }
+    
+    //End of Encryption
 
 	public static void RunInsertQuery()
 
@@ -95,48 +131,60 @@ public class RegistrationSQL
 
 		String dbSchema = "provisio";
 
-		String dbUserName = "root";
+		String dbUserName = "hotelManagement";
 
-		String dbPassword = "password";
+		String dbPassword = "roompass123";
 
 
 		String dbTable = dbSchema + ".customers";
-
-
-		try {
-
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbSchema, dbUserName, dbPassword);
-
-			Statement stmt = conn.createStatement();
-
-
-
-			//Create random ID for record
-
-			double rand = Math.random() * 100000;
-
-			id = (int)rand;
-
-
-			//Insert data into table
-
-
-			PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(customerID, firstName, lastName, userEmail, userPassword) VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + userEmail + "', + '" + userPassword + "')");
-
-			pstmt.executeUpdate();
-
-		}
-
-		catch(Exception e)
-
+		
+		try 
 		{
+			String hashedPassword = toHexString(getSHA(userPassword));
+		
+			try 
+			{
 
-			e.printStackTrace();
+				Class.forName("com.mysql.cj.jdbc.Driver");
 
+
+				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbSchema, dbUserName, dbPassword);
+
+				Statement stmt = conn.createStatement();
+
+
+
+				//Create random ID for record
+
+				double rand = Math.random() * 100000;
+
+				id = (int)rand;
+
+
+				//Insert data into table
+
+
+				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(customerID, firstName, lastName, userEmail, userPassword) VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + userEmail + "', + '" + hashedPassword + "')");
+
+				pstmt.executeUpdate();
+
+			}
+
+			catch(Exception e)
+
+			{
+
+				e.printStackTrace();
+
+			}
 		}
+		catch(Exception e)
+		{
+			
+		}
+
+
+		
 
 	}
 
