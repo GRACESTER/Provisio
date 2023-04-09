@@ -3,6 +3,7 @@
 	<name>Provisio</name>
 	<comment></comment>
 	<projects>
+		<project>Servers</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>

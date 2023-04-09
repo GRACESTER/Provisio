@@ -1,0 +1,37 @@
+body
+{
+    font-family: 'Oswald', 'Verdana', 'Arial', sans-serif;
+}
+
+/* css for navigation bar in header */
+.navBar ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: dodgerblue;
+}
+.navBar li
+{
+    float: right;
+    font-size: 26px;
+}
+#indexLink
+{
+    float: left;
+    font-size: 60px;
+}
+.navBar li a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change the link color to on hover */
+.navBar li a:hover
+{
+    background-color: darkblue;
+}
