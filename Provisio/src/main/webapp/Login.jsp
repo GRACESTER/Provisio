@@ -1,3 +1,16 @@
+<!-- 
+
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/09/2023
+	Module 6.1: Web Dev Assignment
+
+	
+	This page will display a form for registration. The form fields will insert use RegistrationSQL.java to hash the password using the industry standard 
+	SHA-2 encryption, and will insert the data into a MySQL table.
+
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
@@ -224,45 +237,5 @@ h2 {
     
     </div>
 </div>
-		<table border="1">
-	
-	
-		
-		
-		
-
-		<%
-		
-		
-		ResultSet results = javaBeans.ReturnQuery();		
-		//Gets data and column count for output
-		ResultSetMetaData resMetaData = results.getMetaData();
-		int nCols = resMetaData.getColumnCount();
-		%>
-		<tr>
-			<%
-				//Outputs the column headers and names
-				for (int kCol = 1; kCol <= nCols; kCol++) {
-				out.print("<td><b>" + resMetaData.getColumnName(kCol) + "</b></td>");
-			}
-			%>
-		</tr>
-		<%
-			//Looks for each row available
-			while (results.next()) {
-		%><tr>
-			<%
-				//Outputs each set of items in a row
-				for (int kCol = 1; kCol <= nCols; kCol++) {
-				out.print("<td>" + results.getString(kCol) + "</td>");
-			}
-			%>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-		
-
 </body>
 </html>
