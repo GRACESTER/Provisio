@@ -159,7 +159,7 @@ h2 {
 
 <div id="navbar">
 
-	<button onclick="location.href = 'Landing.jsp'" type="button"> Home</button>
+	<button onclick="location.href = 'index.jsp'" type="button"> Home</button>
 
 	<button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
 	
