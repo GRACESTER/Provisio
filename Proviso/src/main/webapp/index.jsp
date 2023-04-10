@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <link href="Provisio.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <header>
+            <div id="site-title">
+                   <h1>Provisio Home</h1> 
+            </div> <!-- end of site-title -->
+
+
+            <h2>Landing Page</h2>
+
+
+            <div id="navbar">
+                <a href="Login.jsp">Login</a>
+                <a href="Registration.jsp" >Registration</a>
+                <a href="--"> About Us</a>
+                <a href="--"> Contact Us</a>
+                <a href="--"> Reservation</a>
+                <a href="--"> Rewards</a>
+            </div> <!-- end of navbar -->
+            
+        </header>
+
+
+            <div id="landing-page-gallery">
+            <div class="grid-item6">       
+            <figure>
+                <h3>Destination One</h3>
+                <img src="images/hotelpic1.jfif" alt="pic1"/>
+                <figcaption>Destination 1 - Beach side getaway</figcaption>
+            </figure>
+            </div>
+
+            <div class="grid-item7">
+            <figure>
+                <h3> Destination Two</h3>
+                <img src="images/hotelpic2.jfif" alt="pic2"/>
+                            <figcaption>Destination 2- Fun nights downtown by the casinos.</figcaption>
+                </figure>
+            </div>
+
+            <div class="grid-item8">
+            <figure>
+                <h3> Destination Three</h3>
+                <img src="images/hotelpic3.jpg" alt="pic3"/>
+                            <figcaption>Destination 3 - Located in the old town with charm.</figcaption>
+             </figure>
+            </div>
+
+            <br>
+            <br>
+            <br>
+        </div> <!-- end of container -->
+                <div id="landing-page">
+                    <a href="Location.jsp">Click here to get started!</a>
+                    
+                </div>
+
+        
+
+        <div id="footer">
+            <p> &copy; 2023 - Provisio </p>
+         </div>    
+                
+    </body>
+
+</html>
