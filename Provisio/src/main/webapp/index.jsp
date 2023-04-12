@@ -1,3 +1,14 @@
+<!-- 
+
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/09/2023
+	Module 6.1: Web Dev Assignment
+
+	
+	This is the landing page for the web site which will load first without selection of a specific page.
+ -->
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
