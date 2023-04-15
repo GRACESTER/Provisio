@@ -1,5 +1,8 @@
 package javaBeans;
 
+
+import java.math.BigDecimal;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -18,13 +21,16 @@ public class ReservationBookingSQL {
 
 	public static int runTime;
 
-
+	private static int reservationID;
+	
 	private static int id;
 
 	private static String checkin;
 
 	private static String checkout;
-	private static String roomSize;
+
+	private static String roomID;
+
 
 	private static String guests;
 	private static int wificheckbox;
@@ -51,11 +57,13 @@ public class ReservationBookingSQL {
 
 	}
 
-	public void setRoomSize(String roomSize)
+
+	public void setRoomID(String roomID)
 
 	{
 
-		this.roomSize = roomSize;
+		this.roomID = roomID;
+
 
 	}
 	
@@ -119,6 +127,31 @@ public class ReservationBookingSQL {
 		System.out.println("parking VALUE IS NOW " + this.parkingcheckbox);
 
 	}
+
+	
+	public String getRoomDescription(String roomIDStr) {
+	    if (roomIDStr == null) {
+	        return "Unknown";
+	    }
+	    int roomID = Integer.parseInt(roomIDStr);
+	    switch (roomID) {
+	        case 1:
+	            return "Double Full Beds";
+	        case 2:
+	            return "Queen";
+	        case 3:
+	            return "Double Queen Beds";
+	        case 4:
+	            return "King";
+	        default:
+	            return "Unknown";
+	    }
+	}
+	
+	public int getId() {
+	    return this.id;
+	}
+
 
 
 
@@ -185,6 +218,27 @@ public class ReservationBookingSQL {
 				//Insert data into table
 
 
+
+
+				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, roomID, guests, wifi, breakfast, parking, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				pstmt.setInt(1, id);
+				pstmt.setInt(2, customerID);
+				pstmt.setInt(3, hotelID);
+				pstmt.setString(4, checkin.toString());
+				pstmt.setString(5, checkout.toString());
+				pstmt.setInt(6, Integer.parseInt(roomID));
+				pstmt.setString(7, guests);
+				pstmt.setInt(8, wificheckbox);
+				pstmt.setInt(9, breakfastcheckbox);
+				pstmt.setInt(10, parkingcheckbox);
+				double price = 0;
+				pstmt.setDouble(11, price);
+
+				pstmt.executeUpdate();
+				
+
+				System.out.println("inserted");
+
 				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, guests, wifi, breakfast, parking) VALUES('" + id + "', '" + customerID + "', '" + hotelID + "', '" + checkin + "', '" + checkout + "', '" + guests + "', '" + wificheckbox + "', '" + breakfastcheckbox + "', '" + parkingcheckbox + "')");
 
 				pstmt.executeUpdate();
@@ -194,6 +248,7 @@ public class ReservationBookingSQL {
 			catch(Exception e)
 
 			{
+
 
 				e.printStackTrace();
 
@@ -209,9 +264,10 @@ public class ReservationBookingSQL {
 
 		String dbSchema = "provisio";
 
-		String dbUserName = "root";
+		String dbUserName = "hotelManagement";
 
-		String dbPassword = "password";
+		String dbPassword = "roompass123";
+
 
 
 		String dbTable = dbSchema + ".reservations";
@@ -228,7 +284,9 @@ public class ReservationBookingSQL {
 
 
 
-			ResultSet rs = stmt.executeQuery("SELECT * FROM " + dbTable);
+
+			ResultSet rs = stmt.executeQuery("SELECT * FROM " + dbTable + " WHERE reservationID = " + id);
+
 
 			results = rs;
 

@@ -1,28 +1,19 @@
 <!-- 
-
-
 	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
 	04/14/2023
 	Module 7.: Web Dev Assignment
-
 	
 	This page will display a reservation form. The form fields will insert use ReservationBookingSQL.java to insert the data into a MySQL table
-
-
-
  -->
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
- <%@page import="java.sql.*"%>
-
- <%@page import="javaBeans.ReservationBookingSQL"%>
-
 <!DOCTYPE html>
 <html>
-<head>	
-	<meta charset="UTF-8">
-	<title>Provisio Registration Page</title>
+<head>
+<meta charset="ISO-8859-1">
+<title>Reservation Summary Page</title>
+
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -30,24 +21,21 @@ body {
     padding: 0;
     background-color: #89b2f5;
 }
-
 header {
     background-color: #0252d4;
     padding: 20px;
     text-align: left;
 }
-
 h1 {
     color: black;
     font-size: 32px;
     margin: 0;
-
+}
 #navbar {
     display: flex;
     justify-content: right;
     padding: 10px 0;
 }
-
 button {
     background-color: blue;
     border: none;
@@ -61,12 +49,9 @@ button {
     cursor: pointer;
     transition-duration: 0.4s;
 }
-
-
 button:hover {
     background-color: #45a049;
 }
-
 .container {
     max-width: 800px;
     margin: 30px auto;
@@ -74,17 +59,14 @@ button:hover {
     border: 1px solid #ccc;
     background-color: #fff;
 }
-
-
 .form-group {
     margin-bottom: 15px;
 }
-
 label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-
+}
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -93,12 +75,10 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 input[type="checkbox"] {
     margin-top: 10px;
     margin-bottom: 20px;
 }
-
 .btn {
     background-color: blue;
     border: none;
@@ -112,56 +92,46 @@ input[type="checkbox"] {
     cursor: pointer;
     border-radius: 4px;
 }
-
 .btn:hover {
     background-color: #45a049;
 }
-
 .alert {
     padding: 20px;
     margin-top: 30px;
     border: 1px solid #ccc;
 }
-
 .alert-secondary {
     background-color: #f9f9f9;
 }
-
 h2 {
     margin-top: 0;
 }
-
 #forgot-password {
     margin-top: 15px;
     text-align: right;
 }
-
 .forms-wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
 .form-container {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
 }
-
 .form-left {
     margin-right: 10px;
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 4px;
 }
-
 .form-right {
     margin-left: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 a.header-link,
 a.header-link:hover,
 a.header-link:visited,
@@ -169,7 +139,6 @@ a.header-link:active {
   text-decoration: none;
   color: inherit;
 }
-
 #reg-hotel-info
 {
 	
@@ -181,10 +150,8 @@ a.header-link:active {
 	display: flex;
   	justify-content: center;
   	align-items: center;
-
+	
 }
-
-
 #reg-hotel-form
 {
 	
@@ -193,10 +160,8 @@ a.header-link:active {
 	width: 700px;
 	margin: 0 auto;
 	text-align: center;
-
+	
 }
-
-
 #reg-hotel-info-image
 {
 	background-color: gray;
@@ -206,7 +171,6 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-right: 10px;
 }
-
 #reg-hotel-info-textbox
 {
 	
@@ -216,7 +180,6 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-left: 10px;
 }
-
 #reg-hotel-form-left
 {
 	background-color: gray;
@@ -226,7 +189,6 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-right: 10px;
 }
-
 #reg-hotel-form-right
 {
 	
@@ -236,7 +198,6 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-left: 10px;
 }
-
 table {
   border-collapse: collapse;
   width: 100%;
@@ -244,7 +205,6 @@ table {
   margin: 0 auto;
   font-size: 14px;
 }
-
 table th {
   color: #444444;
   font-weight: bold;
@@ -252,13 +212,10 @@ table th {
   text-align: left;
   border-bottom: 1px solid #cccccc;
 }
-
 table td {
-
   padding: 8px;
   border-bottom: 1px solid #cccccc;
 }
-
 select {
   width: 50%;
   padding: 8px;
@@ -274,24 +231,19 @@ select {
   background-position: right 8px center;
   background-repeat: no-repeat;
 }
-
 select:focus {
   outline: none;
   border-color: #0252d4;
 }
-
 select option {
   background-color: #ffffff;
   color: #444444;
   font-size: 14px;
   padding: 8px;
 }
-
 .date-picker {
   position: relative;
 }
-
-
 .date-picker input {
   width: 40%;
   padding: 8px;
@@ -302,7 +254,6 @@ select option {
   color: #444444;
   text-align: center;
 }
-
 .date-picker input::-webkit-calendar-picker-indicator {
   position: absolute;
   top: 50%;
@@ -316,18 +267,17 @@ select option {
   cursor: pointer;
   
 }
-
 .date-picker input:focus {
   outline: none;
   border-color: #0252d4;
 }
 </style>
 
+
 </head>
 <body>
 
 <header>
-
 <a href="index.jsp" class="home-link">
 <h1> Provisio </h1>
 </a>
@@ -340,155 +290,86 @@ select option {
 	
 	<button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
 	
-	<button onclick="location.href = 'reservations.jsp'" type="button"> Reservations</button>
+	<button onclick="location.href = 'Reservation-Booking.jsp'" type="button"> Reservations</button>
 	
 	<button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
 	
 </div>
 
 </header>
-<br>
+
+<%@ page import="javaBeans.ReservationBookingSQL" %>
+<%@ page import="java.sql.ResultSet" %>
+<%
+ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
+%>
+
+<jsp:useBean id="javaBeans" class="javaBeans.ReservationBookingSQL" scope="request" />
+
+<%
+	int prevResID = reservationBooking.getId();
+	
+ 	System.out.println(prevResID);
+	
+    ResultSet results = javaBeans.ReturnQuery();
+    double roomPricePerNight = 150.00;
+    double wifiPrice = 12.99;
+    double breakfastPricePerNight = 8.99;
+    double parkingPricePerNight = 19.99;
+    int loyaltyPointsPerNight = 150;
+
+    if (results != null && results.next()) {
+    	int id = results.getInt("reservationID");
+        String checkin = results.getString("checkIn");
+        String checkout = results.getString("checkOut");
+        String roomID = results.getString("roomID");
+        String guests = results.getString("guests");
+        int hotelID = results.getInt("hotelID");
+        int wifi = results.getInt("wifi");
+        int breakfast = results.getInt("breakfast");
+        int parking = results.getInt("parking");
+
+        java.util.Date checkinDate = java.sql.Date.valueOf(checkin);
+        java.util.Date checkoutDate = java.sql.Date.valueOf(checkout);
+        long daysBetween = (checkoutDate.getTime() - checkinDate.getTime()) / (1000 * 60 * 60 * 24);
+        int numberOfNights = (int) daysBetween;
+
+        double totalPrice = numberOfNights * roomPricePerNight;
+        if (wifi == 1) {
+            totalPrice += wifiPrice;
+        }
+        if (breakfast == 1) {
+            totalPrice += breakfastPricePerNight * numberOfNights;
+        }
+        if (parking == 1) {
+            totalPrice += parkingPricePerNight * numberOfNights;
+        }
+
+        int loyaltyPointsEarned = numberOfNights * loyaltyPointsPerNight;
+%>
 
 
-	
-<jsp:useBean id="javaBeans" class="javaBeans.ReservationBookingSQL" />
-	<jsp:setProperty name="javaBeans" property="checkin" param="checkin"/>
-	<jsp:setProperty name="javaBeans" property="checkout" param="checkout"/>
-	<jsp:setProperty name="javaBeans" property="roomID" param="roomID"/>
+    <h2>Reservation Summary</h2>
+    <p>Reservation ID: <%= id %> </p>
+    <p>Check-in Date: <%= checkin %></p>
+    <p>Check-out Date: <%= checkout %></p>
+   	<p>Room Size: <%= roomID != null ? javaBeans.getRoomDescription(String.valueOf(roomID)) : "NA" %></p>
+    <p>Number of Guests: <%= guests %></p>
+    <p>Hotel ID: <%= hotelID %></p>
+    <p>Total Price: $<%= String.format("%.2f", totalPrice) %></p>
+    <p>Points Earned: <%= loyaltyPointsEarned %></p>
 
-	<jsp:setProperty name="javaBeans" property="guests" param="guests"/>
-	<jsp:setProperty name="javaBeans" property="wificheckbox" param="wificheckbox"/>
-	<jsp:setProperty name="javaBeans" property="breakfastcheckbox" param="breakfastcheckbox"/>
-	<jsp:setProperty name="javaBeans" property="parkingcheckbox" param="parkingcheckbox"/>
-	
-	
-	<jsp:setProperty name="javaBeans" property="runTime" param="run"/>
-	<form method="Post" class="form-container" action="Reservation-Booking.jsp" onsubmit="validateForm()">
+    <form method="post" action="index.jsp">
+        <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
+        <input type="submit" value="Confirm Reservation" />
+    </form>
+    <form method="post" action="Reservation-Booking.jsp">
+        <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
+        <input type="submit" value="Cancel Reservation" />
+    </form>
     
-    <input type="hidden" name="run" value=1>
-    
-  <div id="reg-hotel-info">
-	<div id="reg-hotel-info-image">
-		
-	</div>
-	
-	<div id="reg-hotel-info-textbox">
-		<h4>Hotel Name :</h4>
-		<h4>Hotel Address</h4>
-		<h4>Other Information</h4>
-	</div>
-	
-</div>
-	<p>  
-  
-  <div id="reg-hotel-form">
-  	<table>
-  		<tr>
-  			<td><h4>Check In Date</h4></td>
-  			<td><div class="date-picker">
-  				<input type="date" placeholder="Select a date" id="checkin" name="checkin">
-				</div>
-			</td>
-  		</tr>
-  		<tr>
-  			<td><h4>Check Out Date</h4></td>
-  			<td><div class="date-picker">
-  				<input type="date" placeholder="Select a date" id="checkout" name="checkout">
-				</div>
-			</td>
-  		</tr>
-  		<tr>
-  			<td>
-  				<h4>Room Size</h4></td>
+   
 
-  			<td><select id="roomID" name="roomID">
-  					<option>Select Room Size</option>
-    				<option value="1">Double Full Beds</option>
-    				<option value="2">Queen</option>
-    				<option value="3">Double Queen Beds</option>
-    				<option value="4">King</option>
-
-				</select>
-			</td>
-  		</tr>
-  		<tr>
-  			<td><h4>Guests</h4></td>
-  			<td>
-  				<select id="guests" name="guests">
-  				<option>Select Number of Guests</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td><h4>Amenities</h4></td>
-			<td>
-				<label for="wificheckbox">WiFi ($12.99 per stay)</label>
-				<input type="checkbox" id="wificheckbox" name="wificheckbox" >
-      	
-      			<label for="breakfastcheckbox">Breakfast ($8.99 per night)</label>	
-      			<input type="checkbox" id="breakfastcheckbox" name="breakfastcheckbox" >
-      			
-      			<label for="parkingcheckbox">Parking ($19.99 per night)</label>
-		      	<input type="checkbox" id="parkingcheckbox" name="parkingcheckbox" >
-
-		      	
-		      </td>
-		 </tr>
-		 <tr>
-		 	<td><h4>Amenities</h4></td>
-		 	<td>150 per night</td>
-		 </tr>
-		 <tr>
-		 	<td></td>
-
-		 	<td><input class="btn btn-primary" type="submit" value="Book Hotel Stay">
-		 		<input class="btn btn-primary" type="button" value="View Summary" onclick="location.href ='Reservation-Summary.jsp'">
-		 	</td>
-		 		 	
-  	</table>
-  	
-  	</div>
-  	 </form>
-	
-
-<table border="1">
-		<%
-		
-		ReservationBookingSQL rs = new ReservationBookingSQL();
-		
-		ResultSet results = rs.ReturnQuery();		
-		//Gets data and column count for output
-		ResultSetMetaData resMetaData = results.getMetaData();
-		int nCols = resMetaData.getColumnCount();
-		%>
-		<tr>
-			<%
-				//Outputs the column headers and names
-				for (int kCol = 1; kCol <= nCols; kCol++) {
-				out.print("<td><b>" + resMetaData.getColumnName(kCol) + "</b></td>");
-			}
-			%>
-		</tr>
-		<%
-			//Looks for each row available
-			while (results.next()) {
-		%><tr>
-			<%
-				//Outputs each set of items in a row
-				for (int kCol = 1; kCol <= nCols; kCol++) {
-				out.print("<td>" + results.getString(kCol) + "</td>");
-			}
-			%>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-		
-</body>
-
-</html>
+<%  } else { %>
+    <p>Error: Reservation not found.</p>
+<%  } %>
