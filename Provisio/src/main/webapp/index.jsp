@@ -37,7 +37,7 @@
                 <a href="Registration.jsp" >Registration</a>
                 <a href="--"> About Us</a>
                 <a href="--"> Contact Us</a>
-                <a href="--"> Reservation</a>
+                <a href="Reservation-Booking.jsp"> Reservation</a>
                 <a href="--"> Rewards</a>
             </div> <!-- end of navbar -->
             
