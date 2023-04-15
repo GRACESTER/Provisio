@@ -1,6 +1,8 @@
 package javaBeans;
 
+
 import java.math.BigDecimal;
+
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -26,7 +28,9 @@ public class ReservationBookingSQL {
 	private static String checkin;
 
 	private static String checkout;
+
 	private static String roomID;
+
 
 	private static String guests;
 	private static int wificheckbox;
@@ -53,11 +57,13 @@ public class ReservationBookingSQL {
 
 	}
 
+
 	public void setRoomID(String roomID)
 
 	{
 
 		this.roomID = roomID;
+
 
 	}
 	
@@ -121,6 +127,7 @@ public class ReservationBookingSQL {
 		System.out.println("parking VALUE IS NOW " + this.parkingcheckbox);
 
 	}
+
 	
 	public String getRoomDescription(String roomIDStr) {
 	    if (roomIDStr == null) {
@@ -144,6 +151,7 @@ public class ReservationBookingSQL {
 	public int getId() {
 	    return this.id;
 	}
+
 
 
 
@@ -177,9 +185,7 @@ public class ReservationBookingSQL {
 		
 			try 
 			{
-				
-				System.out.println("trying");
-				
+
 				Class.forName("com.mysql.cj.jdbc.Driver");
 
 
@@ -212,7 +218,7 @@ public class ReservationBookingSQL {
 				//Insert data into table
 
 
-				System.out.println("about to insert");
+
 
 				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, roomID, guests, wifi, breakfast, parking, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				pstmt.setInt(1, id);
@@ -232,13 +238,18 @@ public class ReservationBookingSQL {
 				
 
 				System.out.println("inserted");
+
+				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, guests, wifi, breakfast, parking) VALUES('" + id + "', '" + customerID + "', '" + hotelID + "', '" + checkin + "', '" + checkout + "', '" + guests + "', '" + wificheckbox + "', '" + breakfastcheckbox + "', '" + parkingcheckbox + "')");
+
+				pstmt.executeUpdate();
+
 			}
 
 			catch(Exception e)
 
 			{
 
-				System.out.println("exception caught");
+
 				e.printStackTrace();
 
 			}
@@ -258,6 +269,7 @@ public class ReservationBookingSQL {
 		String dbPassword = "roompass123";
 
 
+
 		String dbTable = dbSchema + ".reservations";
 
 
@@ -272,7 +284,9 @@ public class ReservationBookingSQL {
 
 
 
+
 			ResultSet rs = stmt.executeQuery("SELECT * FROM " + dbTable + " WHERE reservationID = " + id);
+
 
 			results = rs;
 

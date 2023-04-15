@@ -132,7 +132,7 @@ VALUES
 (83, 804, "Boston Ghosts and Gravestones Trolley Tour", "Hop aboard the Trolley of the Doomed and unveil the haunted side of Boston on this alternative evening tour of the city’s spookiest corners. Lead by a costumed host, this tour dives into the haunted history of the city by visiting two of the oldest burying grounds in Boston.")
 ;
 
-INSERT INTO Provisio.Reservations(reservationID, customerID, hotelID, checkIn, checkOut, roomSize, guests, wifi, breakfast, parking, price)
+INSERT INTO Provisio.Reservations(reservationID, customerID, hotelID, checkIn, checkOut, roomID, guests, wifi, breakfast, parking, price)
 VALUES
 (67283, 1234, 445, '2023-04-18', '2023-04-23', 4, 3, FALSE, TRUE, TRUE, 969.5),
 (82734, 5263, 595, '2023-07-26', '2023-07-28', 3, 1, TRUE, FALSE, TRUE, 352.97),
@@ -151,7 +151,7 @@ VALUES
 (33558, 3369, 445, '2022-03-03', '2022-03-13', 4, 2, FALSE, TRUE, TRUE, 1939.80),
 (33448, 3369, 445, '2022-12-08', '2022-12-12', 4, 2, FALSE, TRUE, TRUE, 775.92),
 
-(14332, 1475, 445, '2022-04-18', '2022-40-19', 1, 1, TRUE, FALSE, FALSE, 122.99),
+(14332, 1475, 445, '2022-04-18', '2022-04-19', 1, 1, TRUE, FALSE, FALSE, 122.99),
 (14667, 1475, 351, '2022-06-04', '2022-06-08', 3, 2, TRUE, TRUE, TRUE, 728.91),
 (14877, 1475, 445, '2022-06-16', '2022-06-18', 1, 1, TRUE, FALSE, FALSE, 232.99),
 (14490, 1475, 734, '2022-11-14', '2022-11-18', 1, 1, TRUE, FALSE, FALSE, 452.99)

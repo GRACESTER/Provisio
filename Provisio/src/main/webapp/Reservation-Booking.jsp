@@ -1,15 +1,23 @@
 <!-- 
+
+
 	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
 	04/14/2023
 	Module 7.: Web Dev Assignment
+
 	
 	This page will display a reservation form. The form fields will insert use ReservationBookingSQL.java to insert the data into a MySQL table
+
+
+
  -->
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@page import="java.sql.*"%>
+
  <%@page import="javaBeans.ReservationBookingSQL"%>
+
 <!DOCTYPE html>
 <html>
 <head>	
@@ -22,21 +30,24 @@ body {
     padding: 0;
     background-color: #89b2f5;
 }
+
 header {
     background-color: #0252d4;
     padding: 20px;
     text-align: left;
 }
+
 h1 {
     color: black;
     font-size: 32px;
     margin: 0;
-}
+
 #navbar {
     display: flex;
     justify-content: right;
     padding: 10px 0;
 }
+
 button {
     background-color: blue;
     border: none;
@@ -50,9 +61,12 @@ button {
     cursor: pointer;
     transition-duration: 0.4s;
 }
+
+
 button:hover {
     background-color: #45a049;
 }
+
 .container {
     max-width: 800px;
     margin: 30px auto;
@@ -60,14 +74,17 @@ button:hover {
     border: 1px solid #ccc;
     background-color: #fff;
 }
+
+
 .form-group {
     margin-bottom: 15px;
 }
+
 label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-}
+
 input[type="email"],
 input[type="password"],
 input[type="text"] {
@@ -76,10 +93,12 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 input[type="checkbox"] {
     margin-top: 10px;
     margin-bottom: 20px;
 }
+
 .btn {
     background-color: blue;
     border: none;
@@ -93,46 +112,56 @@ input[type="checkbox"] {
     cursor: pointer;
     border-radius: 4px;
 }
+
 .btn:hover {
     background-color: #45a049;
 }
+
 .alert {
     padding: 20px;
     margin-top: 30px;
     border: 1px solid #ccc;
 }
+
 .alert-secondary {
     background-color: #f9f9f9;
 }
+
 h2 {
     margin-top: 0;
 }
+
 #forgot-password {
     margin-top: 15px;
     text-align: right;
 }
+
 .forms-wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .form-container {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
 }
+
 .form-left {
     margin-right: 10px;
     border: 1px solid #ccc;
     background-color: #fff;
     border-radius: 4px;
 }
+
 .form-right {
     margin-left: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 a.header-link,
 a.header-link:hover,
 a.header-link:visited,
@@ -140,6 +169,7 @@ a.header-link:active {
   text-decoration: none;
   color: inherit;
 }
+
 #reg-hotel-info
 {
 	
@@ -151,8 +181,10 @@ a.header-link:active {
 	display: flex;
   	justify-content: center;
   	align-items: center;
-	
+
 }
+
+
 #reg-hotel-form
 {
 	
@@ -161,8 +193,10 @@ a.header-link:active {
 	width: 700px;
 	margin: 0 auto;
 	text-align: center;
-	
+
 }
+
+
 #reg-hotel-info-image
 {
 	background-color: gray;
@@ -172,6 +206,7 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-right: 10px;
 }
+
 #reg-hotel-info-textbox
 {
 	
@@ -181,6 +216,7 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-left: 10px;
 }
+
 #reg-hotel-form-left
 {
 	background-color: gray;
@@ -190,6 +226,7 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-right: 10px;
 }
+
 #reg-hotel-form-right
 {
 	
@@ -199,6 +236,7 @@ a.header-link:active {
 	vertical-align: middle;
 	margin-left: 10px;
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -206,6 +244,7 @@ table {
   margin: 0 auto;
   font-size: 14px;
 }
+
 table th {
   color: #444444;
   font-weight: bold;
@@ -213,10 +252,13 @@ table th {
   text-align: left;
   border-bottom: 1px solid #cccccc;
 }
+
 table td {
+
   padding: 8px;
   border-bottom: 1px solid #cccccc;
 }
+
 select {
   width: 50%;
   padding: 8px;
@@ -232,19 +274,24 @@ select {
   background-position: right 8px center;
   background-repeat: no-repeat;
 }
+
 select:focus {
   outline: none;
   border-color: #0252d4;
 }
+
 select option {
   background-color: #ffffff;
   color: #444444;
   font-size: 14px;
   padding: 8px;
 }
+
 .date-picker {
   position: relative;
 }
+
+
 .date-picker input {
   width: 40%;
   padding: 8px;
@@ -255,6 +302,7 @@ select option {
   color: #444444;
   text-align: center;
 }
+
 .date-picker input::-webkit-calendar-picker-indicator {
   position: absolute;
   top: 50%;
@@ -268,6 +316,7 @@ select option {
   cursor: pointer;
   
 }
+
 .date-picker input:focus {
   outline: none;
   border-color: #0252d4;
@@ -306,6 +355,7 @@ select option {
 	<jsp:setProperty name="javaBeans" property="checkin" param="checkin"/>
 	<jsp:setProperty name="javaBeans" property="checkout" param="checkout"/>
 	<jsp:setProperty name="javaBeans" property="roomID" param="roomID"/>
+
 	<jsp:setProperty name="javaBeans" property="guests" param="guests"/>
 	<jsp:setProperty name="javaBeans" property="wificheckbox" param="wificheckbox"/>
 	<jsp:setProperty name="javaBeans" property="breakfastcheckbox" param="breakfastcheckbox"/>
@@ -350,12 +400,14 @@ select option {
   		<tr>
   			<td>
   				<h4>Room Size</h4></td>
+
   			<td><select id="roomID" name="roomID">
   					<option>Select Room Size</option>
     				<option value="1">Double Full Beds</option>
     				<option value="2">Queen</option>
     				<option value="3">Double Queen Beds</option>
     				<option value="4">King</option>
+
 				</select>
 			</td>
   		</tr>
@@ -382,6 +434,7 @@ select option {
       			
       			<label for="parkingcheckbox">Parking ($19.99 per night)</label>
 		      	<input type="checkbox" id="parkingcheckbox" name="parkingcheckbox" >
+
 		      	
 		      </td>
 		 </tr>
@@ -391,6 +444,7 @@ select option {
 		 </tr>
 		 <tr>
 		 	<td></td>
+
 		 	<td><input class="btn btn-primary" type="submit" value="Book Hotel Stay">
 		 		<input class="btn btn-primary" type="button" value="View Summary" onclick="location.href ='Reservation-Summary.jsp'">
 		 	</td>
@@ -400,7 +454,6 @@ select option {
   	</div>
   	 </form>
 	
-
 
 <table border="1">
 		<%
@@ -437,4 +490,5 @@ select option {
 	</table>
 		
 </body>
+
 </html>
