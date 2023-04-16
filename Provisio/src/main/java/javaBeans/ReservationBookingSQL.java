@@ -30,6 +30,8 @@ public class ReservationBookingSQL {
 	private static String checkout;
 
 	private static String roomID;
+	
+	private static double price;
 
 
 	private static String guests;
@@ -231,7 +233,6 @@ public class ReservationBookingSQL {
 				pstmt.setInt(8, wificheckbox);
 				pstmt.setInt(9, breakfastcheckbox);
 				pstmt.setInt(10, parkingcheckbox);
-				double price = 0;
 				pstmt.setDouble(11, price);
 
 				pstmt.executeUpdate();
@@ -239,9 +240,9 @@ public class ReservationBookingSQL {
 
 				System.out.println("inserted");
 
-				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, guests, wifi, breakfast, parking) VALUES('" + id + "', '" + customerID + "', '" + hotelID + "', '" + checkin + "', '" + checkout + "', '" + guests + "', '" + wificheckbox + "', '" + breakfastcheckbox + "', '" + parkingcheckbox + "')");
+				//PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, guests, wifi, breakfast, parking) VALUES('" + id + "', '" + customerID + "', '" + hotelID + "', '" + checkin + "', '" + checkout + "', '" + guests + "', '" + wificheckbox + "', '" + breakfastcheckbox + "', '" + parkingcheckbox + "')");
 
-				pstmt.executeUpdate();
+				//pstmt.executeUpdate();
 
 			}
 
@@ -306,6 +307,76 @@ public class ReservationBookingSQL {
 
 
 
+	}
+	
+	public void ConfirmReservation(int reservationID, double price)
+	{	
+		System.out.println("Confirming Reservation!");
+		String dbSchema = "provisio";
+
+		String dbUserName = "hotelManagement";
+
+		String dbPassword = "roompass123";
+
+
+		String dbTable = dbSchema + ".reservations";
+		
+		try
+		{
+			System.out.println("Confirming Reservation! - Starting SQL! Reservation ID is " + reservationID + " And price is " + price);
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbSchema, dbUserName, dbPassword);
+
+			Statement stmt = conn.createStatement();
+			
+			System.out.println("Confirming Reservation! - Preparing Update Statement");
+			PreparedStatement pstmt = conn.prepareStatement("UPDATE provisio.reservations SET price = " + price + " WHERE reservationID = " + reservationID);	
+			pstmt.executeUpdate();
+			
+			System.out.println("Reservation has been updated and confirmed!");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Reservation FAILURE");
+		}
+			
+	}
+	
+	public void CancelReservation(int reservationID)
+	{
+		System.out.println("Confirming Reservation!");
+		String dbSchema = "provisio";
+
+		String dbUserName = "hotelManagement";
+
+		String dbPassword = "roompass123";
+
+
+		String dbTable = dbSchema + ".reservations";
+		
+		try
+		{
+			System.out.println("Cancelled Reservation! - Starting SQL! Reservation ID is " + reservationID + " And price is " + price);
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbSchema, dbUserName, dbPassword);
+
+			Statement stmt = conn.createStatement();
+		
+			System.out.println("Cancelled Reservation! - Preparing Update Statement");
+			PreparedStatement pstmt = conn.prepareStatement("DELETE FROM provisio.reservations WHERE reservationID = " + reservationID);	
+			pstmt.executeUpdate();
+		
+			System.out.println("Reservation has been Cancelled!");
+		
+		}
+		catch(Exception e)
+		{
+			System.out.println("Cancellation FAILURE");
+		}
 	}
 
 }

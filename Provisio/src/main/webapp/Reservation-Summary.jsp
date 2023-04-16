@@ -359,13 +359,43 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
     <p>Total Price: $<%= String.format("%.2f", totalPrice) %></p>
     <p>Points Earned: <%= loyaltyPointsEarned %></p>
 
-    <form method="post" action="index.jsp">
+
+<%
+   // Check if the form has been submitted
+   
+   
+   if(request.getMethod().equals("POST")) {   
+	   
+	   // Check which button was pressed
+	      String button = request.getParameter("button");
+	      if(button != null && button.equals("Confirm Reservation")) {
+	    	  System.out.println("REQUEST BEING HANDLED with reservation ID of " + javaBeans.getId());
+	          // Create an instance of the ReservationBookingSQL class
+	          ReservationBookingSQL booking = new ReservationBookingSQL();     
+	          // Call the ConfirmReservation() method with the reservation ID
+	          booking.ConfirmReservation(javaBeans.getId(), totalPrice);
+	         System.out.println("Reservation confirmed!");
+	
+	      } else if(button != null && button.equals("Cancel Reservation")) {
+	    	  ReservationBookingSQL booking = new ReservationBookingSQL();     
+	          // Call the ConfirmReservation() method with the reservation ID
+	          booking.CancelReservation(javaBeans.getId());
+	         System.out.println("Reservation cancelled!");
+	         // TODO: add code to cancel the reservation
+	      }
+	   
+	  
+   }
+%>
+
+
+    <form method="post" action="">
         <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
-        <input type="submit" value="Confirm Reservation" />
+        <input type="submit" name = button value="Confirm Reservation" />
     </form>
-    <form method="post" action="Reservation-Booking.jsp">
+    <form method="post" action="">
         <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
-        <input type="submit" value="Cancel Reservation" />
+        <input type="submit" name="button" value="Cancel Reservation" />
     </form>
     
    
