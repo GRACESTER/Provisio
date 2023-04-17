@@ -1,3 +1,15 @@
+/*
+ * 
+ * Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/14/2023
+	Module 7.: Web Dev Assignment
+
+	
+	This is the Java code for both the Reservation-Booking.jsp and the Reservation-Summary.jsp. It handles the MySQL insert, update, delete, and retrieval from various requests on both pages
+ */
+
+
+
 package javaBeans;
 
 
