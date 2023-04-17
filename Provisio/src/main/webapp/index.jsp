@@ -35,7 +35,7 @@
 
                 <button onclick="location.href = 'index.jsp'" type="button"> Home</button>
             
-                <button onclick="location.href = 'Registration-Booking.jsp'" type="button"> Registration</button>
+                <button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
                 
                 <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
                 
