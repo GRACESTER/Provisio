@@ -28,7 +28,7 @@
             
             <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
             
-            <button onclick="location.href = 'Reservations.jsp'" type="button"> Reservations</button>
+            <button onclick="location.href = 'Reservation-Booking.jsp'" type="button"> Reservations</button>
             
             <button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
             
