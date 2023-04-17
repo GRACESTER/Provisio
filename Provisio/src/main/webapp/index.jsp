@@ -31,14 +31,18 @@
 
             <h2>Landing Page</h2>
 
-
             <div id="navbar">
-                <a href="Login.jsp">Login</a>
-                <a href="Registration.jsp" >Registration</a>
-                <a href="--"> About Us</a>
-                <a href="--"> Contact Us</a>
-                <a href="Reservation-Booking.jsp"> Reservation</a>
-                <a href="--"> Rewards</a>
+
+                <button onclick="location.href = 'index.jsp'" type="button"> Home</button>
+            
+                <button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
+                
+                <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
+                
+                <button onclick="location.href = 'Reservations.jsp'" type="button"> Reservations</button>
+                
+                <button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
+                
             </div> <!-- end of navbar -->
             
         </header>
