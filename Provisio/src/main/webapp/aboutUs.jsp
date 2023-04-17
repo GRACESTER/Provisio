@@ -1,3 +1,11 @@
+<!-- 
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/14/2023
+	Module 8.1: Web Dev Assignment
+	
+	This page will display the about us page information
+ -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

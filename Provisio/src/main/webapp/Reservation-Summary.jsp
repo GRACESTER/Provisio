@@ -1,9 +1,9 @@
 <!-- 
 	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
 	04/14/2023
-	Module 7.: Web Dev Assignment
+	Module 8.1: Web Dev Assignment
 	
-	This page will display a reservation form. The form fields will insert use ReservationBookingSQL.java to insert the data into a MySQL table
+	This page will display the results of the previously submitted reservation form. The confirm reservation button will update the price in the MySQL table. The cancel reservation button will delete the record.
  -->
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -13,7 +13,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Reservation Summary Page</title>
-
 <style>
 body {
     font-family: Arial, sans-serif;

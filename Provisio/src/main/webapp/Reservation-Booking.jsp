@@ -399,7 +399,7 @@ select option {
 		      </td>
 		 </tr>
 		 <tr>
-		 	<td><h4>Amenities</h4></td>
+		 	<td><h4>Loyalty Points</h4></td>
 		 	<td>150 per night</td>
 		 </tr>
 		 <tr>
@@ -413,41 +413,6 @@ select option {
   	
   	</div>
   	 </form>
-	
-
-<table border="1">
-		<%
-		
-		ReservationBookingSQL rs = new ReservationBookingSQL();
-		
-		ResultSet results = rs.ReturnQuery();		
-		//Gets data and column count for output
-		ResultSetMetaData resMetaData = results.getMetaData();
-		int nCols = resMetaData.getColumnCount();
-		%>
-		<tr>
-			<%
-				//Outputs the column headers and names
-				for (int kCol = 1; kCol <= nCols; kCol++) {
-				out.print("<td><b>" + resMetaData.getColumnName(kCol) + "</b></td>");
-			}
-			%>
-		</tr>
-		<%
-			//Looks for each row available
-			while (results.next()) {
-		%><tr>
-			<%
-				//Outputs each set of items in a row
-				for (int kCol = 1; kCol <= nCols; kCol++) {
-				out.print("<td>" + results.getString(kCol) + "</td>");
-			}
-			%>
-		</tr>
-		<%
-			}
-		%>
-	</table>
 		
 </body>
 
