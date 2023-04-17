@@ -31,6 +31,8 @@ public class ReservationBookingSQL {
 
 	private static String roomID;
 	
+	private static int hotelID;
+	
 	private static double price;
 
 
@@ -67,6 +69,11 @@ public class ReservationBookingSQL {
 		this.roomID = roomID;
 
 
+	}
+	
+	public void setHotelID(int hotelID)
+	{
+		this.hotelID = hotelID;
 	}
 	
 	public void setGuests(String guests)
@@ -212,10 +219,6 @@ public class ReservationBookingSQL {
 				rand = Math.random() * 100000;
 				int customerID = (int)rand;
 		
-				//Hotel ID Random
-				rand = Math.random() * 100000;
-				int hotelID = (int)rand;
-
 
 				//Insert data into table
 
