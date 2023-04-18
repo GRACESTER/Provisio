@@ -93,11 +93,11 @@ INSERT INTO Provisio.Hotels(hotelID, hotelName, hotelAddress, hotelPictureURL, h
 VALUES
 -- (872, 'Hilton', '1234 Hilton Way, Hilton, USA 900000', 'images/872/hotelImage.jpeg', 'Not a Hilton Hotel'),
 -- (225, 'Marriot', '1234 Marriott Ave, Marriott, USA 800000', 'images/225/hotelImage.jpeg', 'Is a Marriott Hotel'),
-(445, 'Hyatt', '939 S Figueroa St, Los Angeles, CA 90015', 'images/445/hotelImage.jpeg', 'Upmarket Downtown hotel with Spanish Colonial styling, an outdoor pool & chic Mediterranean dining.'),
-(595, 'Edgewater', '2411 Alaskan Wy, Seattle, WA 98121', 'images/595/hotelImage.jpeg', 'Local seafood leads the seasonal menus at this New American spot with views unlike any other.'),
-(734, 'Blossom', '7118 Bertner Ave, Houston, TX 77030', 'images/734/hotelImage.jpeg', 'Refined quarters in an upmarket hotel featuring a rooftop pool, a restaurant & a fitness center.'),
-(351, 'DoubleTree', '5780 Major Blvd, Orlando, FL 32819', 'images/351/hotelImage.jpeg', 'Casual lodging at the entrance to Universal Studios, with an outdoor pool, restaurants & a shuttle.'),
-(804, 'Godfrey', '505 Washington St, Boston, MA 02111', 'images/804/hotelImage.jpeg', 'Polished hotel in a pre-war building offering contemporary rooms & suites, plus a sophisticated bar.')
+(445, 'Hyatt', '939 S Figueroa St, Los Angeles, CA 90015', 'images/445/hotelImage.jpg', 'Upmarket Downtown hotel with Spanish Colonial styling, an outdoor pool & chic Mediterranean dining.'),
+(595, 'Edgewater', '2411 Alaskan Wy, Seattle, WA 98121', 'images/595/hotelImage.jpg', 'Local seafood leads the seasonal menus at this New American spot with views unlike any other.'),
+(734, 'Blossom', '7118 Bertner Ave, Houston, TX 77030', 'images/734/hotelImage.jpg', 'Refined quarters in an upmarket hotel featuring a rooftop pool, a restaurant & a fitness center.'),
+(351, 'DoubleTree', '5780 Major Blvd, Orlando, FL 32819', 'images/351/hotelImage.jpg', 'Casual lodging at the entrance to Universal Studios, with an outdoor pool, restaurants & a shuttle.'),
+(804, 'Godfrey', '505 Washington St, Boston, MA 02111', 'images/804/hotelImage.jpg', 'Polished hotel in a pre-war building offering contemporary rooms & suites, plus a sophisticated bar.')
 ;
 
 INSERT INTO Provisio.Rooms(roomID, roomDescription, roomPrice)
