@@ -38,90 +38,91 @@
     </head>
 
     <body>
-        <%@ include file = "header.html" %>
+		<%@ include file = "header.html" %>
 
-        <h2>Locations</h2>
-        <%
-        ArrayList<Integer> IDs = Location.getLocations();
-        ArrayList<Location> Locations = new ArrayList<Location>();
-        
-        for (Integer ID : IDs)
-        {
-        	Locations.add(new Location(ID));
-        }
-        
-        //ResultSet hotels = DBBean.getResults("SELECT * FROM hotels");
-        //while(hotels.next())
-        for (Location loc : Locations)
-        {
-            %>
-            <table id="location">
-                <tr>
-                    <td>
-                        <!-- hotel name -->
+        <div class="content-location">
+            <h2 class="body-title">Locations</h2>
+
+            <%
+            //setup arraylists for hotel ids and hotel/location objects
+            //first arraylist populated with hotel ids from database 
+            ArrayList<Integer> IDs = Location.getLocations();
+            ArrayList<Location> Locations = new ArrayList<Location>();
+            
+            //fill location arraylist with locations based on the ids pulled from database
+            for (Integer ID : IDs)
+            {
+                Locations.add(new Location(ID));
+            }
+            
+            //begin outputting each location's data to page
+            for (Location loc : Locations)
+            {
+                %>
+                <div class="location">
+                    <div class="location-title">
+                        <!-- hotel name and address-->
                         <% out.print("<h3>"+ loc.getName() + "</h3>"); %>
-                    </td>
-                    <td><!-- hotel address -->
                         <% out.print("<p>"+ loc.getAddress() + "</p>"); %>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
+                    </div>
+
+                    <div class="location-picture">
                         <!-- hotel picture -->
                         <%
                         String imgPath = loc.getPictureURL();
-                        out.print("<img id=\"hotelPic\" src=\"" +imgPath+ "\" alt=\"hotel image\"");
+                        out.print("<img id=\"hotelPic\" src=\"" +imgPath+ "\" alt=\"hotel image\">");
                         %>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
+                    </div>
+
+                    <div class="location-notes">
                         <!-- hotel notes -->
                         <% out.print("<p>"+ loc.getNotes() + "</p>"); %>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <!-- hotel attractions -->
-                        <table>
-                        	<tr>
-                        		<h3>Available Attractions</h3>
-                        	</tr>
-	                        <%
-	                        ArrayList<Integer> attIDs = Attraction.getAttractions(loc.getID());
-	                        ArrayList<Attraction> Attractions = new ArrayList<Attraction>();
-	                        
-	                        for (Integer attID : attIDs)
-	                        {
-	                        	Attractions.add(new Attraction(attID));
-	                        }
-	                        
-	                        //ResultSet hotels = DBBean.getResults("SELECT * FROM hotels");
-	                        //while(hotels.next())
-	                        for (Attraction att : Attractions)
-	                        {
-	                            {
-	                                %>
-	                                <tr>
-	                                    <td>
-	                                        <!-- attraction name -->
-	                                        <% out.print("<h4>"+ att.getName() + "</h3>"); %>
-	                                    </td>
-	                                    <td><!-- attraction description -->
-	                                        <% out.print("<p>"+ att.getDescription() + "</p>"); %>
-	                                    </td>
-	                                </tr>
-	                                <%
-	                            }
-	                        }
-	                        %>
-                        </table>
-                    </td>
-                </tr>
+                    </div>
 
-            </table>
-            <%
-        }
-        %>
+                    <div class="location-attractions">
+                        <!-- hotel attractions -->
+                        <div class="attraction-title">
+                            <h3 class="attraction-title">Available Attractions</h3>
+                        </div>
+
+                        <%
+                        //setup arraylists for attraction ids and attraction objects
+                        //first arraylist populated with attraction ids from database, but only ones from this hotel id
+                        ArrayList<Integer> attIDs = Attraction.getAttractions(loc.getID());
+                        ArrayList<Attraction> Attractions = new ArrayList<Attraction>();
+                        
+                        //fill attraction arraylist with attractions based on the ids pulled from database
+                        for (Integer attID : attIDs)
+                        {
+                            Attractions.add(new Attraction(attID));
+                        }
+                        
+                        //begin outputting each attraction's data to page
+                        for (Attraction att : Attractions)
+                        {
+                            {
+	                            %>
+	                            <div class="attraction-item">
+	                                <div class="attraction-name">
+	                                    <% out.print("<h4>"+ att.getName() + "</h4>"); %>
+	                                </div>
+	                                <div class="attraction-desc">
+	                                    <% out.print("<p>"+ att.getDescription() + "</p>"); %>
+	                                </div>
+	                            </div>                           
+	                            <%
+                            }
+                        }
+                        %>
+                        
+                    </div>
+                </div>
+                <%
+            }
+            %>
+        </div>
+        
+
+		<%@ include file = "footer.html" %>
     </body>
 </html>

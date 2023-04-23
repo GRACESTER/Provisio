@@ -8,9 +8,28 @@ This is the site CSS code for most of the Provisio pages
 */
 body {
     font-family: Arial, sans-serif;
+    color: #333;
     margin: 0;
-    padding: 0;
     background-color: #89b2f5;
+}
+
+.header{
+    background-color: #333;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
+}
+.header a
+{
+    text-decoration: none;
+}
+h1{
+    text-align: left;
+    padding-left: 20px;
+    color: white;
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
 }
 
 #navbar {
@@ -35,73 +54,105 @@ button:hover {
     background-color: #45a049;
 }
 
-header{
-    background-color: #89b2f5;
-    text-align: center;
-    width: 100%;
-    padding: 20px;
-}
-h1{
-    text-align: left;
-    font-family: 'arial', sans-serif;
-    padding-top: 3px;
-    color: #19191A;
-    font-weight: 700;
-    text-decoration: underline;
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 h2{
     text-align: center;
     font-family: 'arial', sans-serif;
     padding-top: 3px;
-    color: #19191A;
     font-weight: 500;
     text-decoration: underline;
 }
-
+h2.body-title
+{
+    font-size: 50px;
+    font-weight: 800;
+}
 h3{
     text-align: center;
-    font-family: 'arial', sans-serif;
     padding-top: 3px;
-    color: #19191A;
-    font-weight: 400;
+    font-weight: 600;
     text-decoration: underline;
 }
 
-figure {
+#landing-page-gallery{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+#landing-page-gallery figure {
     width: 75%;
     margin-left: auto;
     margin-right: auto;
     max-width: 800px;
 }
-
-img {
+#landing-page-gallery img {
     width:150px;
     height:150px;
-    border: 3px solid #023E8A;
+    border: 3px solid blue;
     margin-left: 10%;
 }
+#landing-page-gallery figcaption {
+    text-align: center;
+    font-style: italic;
+    border-bottom: 3px solid blue;
+    border-left: 3px solid blue;
+    border-right: 3px solid blue;
+    background-color: gainsboro;
+}
+
+#landing-page{
+    padding: 50px;
+    text-align: center;
+}
+#landing-page a{
+    font-size: 20px;
+}
+
+.content-location {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.location {
+    padding: 0 2%;
+    margin: 10px 0 100px;
+    background-color: #619cfa;
+    border: 5px solid blue;
+}
+.location-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    align-content: space-around;
+    column-gap: 35px;
+}
+.location-title h3{
+    font-size: 25px;
+}
+h3.attraction-title {
+    text-align: left;
+}
+
+.attraction-item {
+    display: grid;
+    grid-template-columns: 20% auto;
+    gap: 15px;
+}
+
+
 #hotelPic
 {
     width: 500px;
     height: 100%;
-    border: 3px solid black;
+    border: 3px solid blue;
     margin-left: 0px;
-}
-#location
-{
-	border: 1px solid black;
-    margin: 10px;
-    width: 80%
-}
-
-figcaption {
-    text-align: center;
-    font-style: italic;
-    border-bottom: 3px solid #023E8A;
-    border-left: 3px solid #023E8A;
-    border-right: 3px solid #023E8A;
-    background-color: aliceblue;
 }
 
 
@@ -121,13 +172,6 @@ dd{
 }
 
 
-#landing-page-gallery{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    padding-top: 10px;
-    background-color: white;
-}
 
 #aboutus-gallery{
     display: flex;
@@ -141,7 +185,7 @@ dd{
     color: #19191A;
     size: 16px;
     padding: 30px;
-    background-color: ;
+    background-color: red;
 }
 
 #contactus{
@@ -153,29 +197,25 @@ dd{
     background-color: #0252d4;
 }
 
-#landing-page{
-    font-family: 'arial', sans-serif;;
-    color: #19191A;
-    padding: 30px;
-    position: flex;
-    text-align: center;
-    bottom: 0;
-    background-color: white;
+
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    color: white;
+    background-color: #333;
+    padding: 15px 0;
+}
+.footer p {
+    padding: 0 25px 0;
 }
 
-#footer{
-    width: 100%;
-    background-color: gainsboro;
-    position: absolute;
-    padding-bottom: 20px;
-}
-#footer a:link{
-    color: #19191A ;
+.footer a:link{
+    color: aliceblue ;
     float:right;
     text-decoration: underline;
 }
-
-#footer a:visited{
+.footer a:visited{
     color: #575759;
     text-decoration: underline;
 }
