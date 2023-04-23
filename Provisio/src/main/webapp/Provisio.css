@@ -39,7 +39,7 @@ header{
     background-color: #89b2f5;
     text-align: center;
     width: 100%;
-    padding-top: 20px;
+    padding: 20px;
 }
 h1{
     text-align: left;
@@ -80,6 +80,19 @@ img {
     height:150px;
     border: 3px solid #023E8A;
     margin-left: 10%;
+}
+#hotelPic
+{
+    width: 500px;
+    height: 100%;
+    border: 3px solid black;
+    margin-left: 0px;
+}
+#location
+{
+	border: 1px solid black;
+    margin: 10px;
+    width: 80%
 }
 
 figcaption {
