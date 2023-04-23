@@ -123,5 +123,7 @@
             <%
         }
         %>
+
+        <%@ include file = "footer.html" %>
     </body>
 </html>

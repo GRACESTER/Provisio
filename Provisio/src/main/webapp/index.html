@@ -20,71 +20,68 @@
 
     <body>
 
-        <header>
-            <div id="site-title">
-                   <h1>Provisio Home</h1> 
-            </div> <!-- end of site-title -->
+        <div class="flex-wrapper">
 
-
-            <h2>Landing Page</h2>
-
-            <div id="navbar">
-
-                <button onclick="location.href = 'index.html'" type="button"> Home</button>
+            <div class="header">
+                <a href="index.html" class="home-link">
+                    <h1> Provisio </h1>
+                </a>
+                
+                <div id="navbar">
+                
+                    <button onclick="location.href = 'index.html'" type="button"> Home</button>
+                
+                    <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
+                    
+                    <button onclick="location.href = 'Locations.jsp'" type="button"> Locations</button>
             
-                <button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
-                
-                <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
-                
-                <button onclick="location.href = 'Reservation-Booking.jsp'" type="button"> Reservations</button>
-                
-                <button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
-                
-            </div> <!-- end of navbar -->
+                    <button onclick="location.href = 'Login.jsp'" type="button"> Log In</button>
             
-        </header>
-
-
-            <div id="landing-page-gallery">
-            <div class="grid-item6">       
-            <figure>
-                <h3>Destination One</h3>
-                <img src="images/hotelpic1.jfif" alt="pic1"/>
-                <figcaption>Destination 1 - Beach side getaway</figcaption>
-            </figure>
-            </div>
-
-            <div class="grid-item7">
-            <figure>
-                <h3> Destination Two</h3>
-                <img src="images/hotelpic2.jfif" alt="pic2"/>
-                            <figcaption>Destination 2- Fun nights downtown by the casinos.</figcaption>
-                </figure>
-            </div>
-
-            <div class="grid-item8">
-            <figure>
-                <h3> Destination Three</h3>
-                <img src="images/hotelpic3.jpg" alt="pic3"/>
-                            <figcaption>Destination 3 - Located in the old town with charm.</figcaption>
-             </figure>
-            </div>
-
-            <br>
-            <br>
-            <br>
-        </div> <!-- end of container -->
-                <div id="landing-page">
-                    <a href="Location.jsp">Click here to get started!</a>
+                    <button onclick="location.href = 'Registration.jsp'" type="button"> Create Account</button>
+                    
+                    <button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
                     
                 </div>
+            </div> <!-- end header -->
 
+            <div class="content">
+                <div id="landing-page-gallery">
+                    <div class="grid-item">       
+                        <figure>
+                            <h3>Hyatt - Los Angeles</h3>
+                            <img src="images/351/hotelImage.jpg" alt="pic1"/>
+                            <figcaption>Upmarket Downtown hotel with Spanish Colonial styling.</figcaption>
+                        </figure>
+                    </div>
         
+                    <div class="grid-item">
+                        <figure>
+                            <h3> Edgewater - Seattle</h3>
+                            <img src="images/445/hotelImage.jpg" alt="pic2"/>
+                            <figcaption>New American spot with views unlike any other.</figcaption>
+                        </figure>
+                    </div>
+        
+                    <div class="grid-item">
+                        <figure>
+                            <h3> Blossom - Houston</h3>
+                            <img src="images/595/hotelImage.jpg" alt="pic3"/>
+                            <figcaption>Refined quarters in an upmarket hotel.</figcaption>
+                        </figure>
+                    </div>
+                    
+                </div> <!-- end of images -->
+        
+                <div id="landing-page">
+                    <a href="Locations.jsp">Click here to book a hotel!</a>
+                    
+                </div>
+            </div> <!-- end content -->
 
-        <div id="footer">
-            <p> &copy; 2023 - Provisio </p>
-         </div>    
-                
+            <div class="footer">
+                <p> &copy; 2023 - Provisio </p>
+            </div> <!-- end footer -->
+
+        </div>
     </body>
-
 </html>
