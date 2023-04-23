@@ -180,6 +180,26 @@ dd{
     padding-top: 10px;
     background-color: #0252d4;
 }
+#aboutus-gallery figure {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+}
+#aboutus-gallery img {
+    width:150px;
+    height:150px;
+    border: 3px solid blue;
+    margin-left: 10%;
+}
+#aboutus-gallery figcaption {
+    text-align: center;
+    font-style: italic;
+    border-bottom: 3px solid blue;
+    border-left: 3px solid blue;
+    border-right: 3px solid blue;
+    background-color: gainsboro;
+}
 #aboutus{
     font-family: 'arial', sans-serif;;
     color: #19191A;

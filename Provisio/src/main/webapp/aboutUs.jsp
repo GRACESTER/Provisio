@@ -20,28 +20,9 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
      
     </head>
-  
-    <header>
-        <a href="index.jsp" class="home-link">
-            <h1> Provisio </h1>
-            </a>
-        <h2>About Us </h2>
-     </header>
+    
      <body>
-        <div id="navbar">
-
-            <button onclick="location.href = 'index.jsp'" type="button"> Home</button>
-        
-            <button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
-            
-            <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
-            
-            <button onclick="location.href = 'Reservation-Booking.jsp'" type="button"> Reservations</button>
-            
-            <button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
-            
-        </div>
-        
+		<%@ include file = "header.html" %>
 
         <div id="container">
             
@@ -74,14 +55,16 @@
                 <b></b>
             </div>
 
-            <div id="contactus"
+            <div id="contactus">
                 <p>Need some help? Email or call us using the information below: </p>
                 <p>Reservations: reservations@provisio.com or 1-888-555-6778 </p>
                 <p>Account Inquires: accounting@provisio.com or 1-888-555-0394 </p>
                 <p>Reward Points: points@provisio.com or 1-888-555-3221</p>
             </div>
 
-         
         </div>
+        
+        
+		<%@ include file = "footer.html" %>
     </body>
 </html>
