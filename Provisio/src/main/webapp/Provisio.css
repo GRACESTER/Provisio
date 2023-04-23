@@ -17,7 +17,7 @@ body {
     background-color: #333;
     text-align: center;
     width: 100%;
-    padding: 20px;
+    padding: 20px 0;
 }
 .header a
 {
@@ -25,7 +25,7 @@ body {
 }
 h1{
     text-align: left;
-    padding-top: 3px;
+    padding-left: 20px;
     color: white;
     font-size: 32px;
     margin: 0;
@@ -54,7 +54,7 @@ button:hover {
     background-color: #45a049;
 }
 
-.flex-wrapper {
+.page-layout {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -67,6 +67,11 @@ h2{
     padding-top: 3px;
     font-weight: 500;
     text-decoration: underline;
+}
+h2.body-title
+{
+    font-size: 50px;
+    font-weight: 800;
 }
 h3{
     text-align: center;
@@ -109,6 +114,38 @@ h3{
     font-size: 20px;
 }
 
+.content-location {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.location {
+    padding: 0 2%;
+    margin: 10px 0 100px;
+    background-color: #619cfa;
+    border: 5px solid blue;
+}
+.location-title {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    align-content: space-around;
+    column-gap: 35px;
+}
+.location-title h3{
+    font-size: 25px;
+}
+h3.attraction-title {
+    text-align: left;
+}
+
+.attraction-item {
+    display: grid;
+    grid-template-columns: 20% auto;
+    gap: 15px;
+}
+
 
 #hotelPic
 {
@@ -116,12 +153,6 @@ h3{
     height: 100%;
     border: 3px solid blue;
     margin-left: 0px;
-}
-#location
-{
-	border: 1px solid black;
-    margin: 10px;
-    width: 80%
 }
 
 
@@ -154,7 +185,7 @@ dd{
     color: #19191A;
     size: 16px;
     padding: 30px;
-    background-color: ;
+    background-color: red;
 }
 
 #contactus{
@@ -173,15 +204,18 @@ dd{
     width: 100%;
     color: white;
     background-color: #333;
-    padding: 10px 20px 20px;
+    padding: 15px 0;
+}
+.footer p {
+    padding: 0 25px 0;
 }
 
-#footer a:link{
+.footer a:link{
     color: aliceblue ;
     float:right;
     text-decoration: underline;
 }
-#footer a:visited{
+.footer a:visited{
     color: #575759;
     text-decoration: underline;
 }
