@@ -26,24 +26,30 @@ body {
     padding: 0;
 }
 
-header {
+.header{
     background-color: #333;
-    padding: 20px;
-    text-align: left;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
 }
-
-h1 {
+.header a
+{
+    text-decoration: none;
+}
+h1{
+    text-align: left;
+    padding-left: 20px;
     color: white;
     font-size: 32px;
     margin: 0;
+    font-weight: 700;
 }
 
 #navbar {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     padding: 10px 0;
 }
-
 button {
     background-color: blue;
     border: none;
@@ -57,9 +63,15 @@ button {
     cursor: pointer;
     transition-duration: 0.4s;
 }
-
 button:hover {
     background-color: #45a049;
+}
+
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .container {
@@ -164,32 +176,28 @@ a.header-link:active {
   text-decoration: none;
   color: inherit;
 }
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    color: white;
+    background-color: #333;
+    padding: 15px 0;
+}
+.footer p {
+    padding: 0 25px 0;
+}
+
+
 </style>
 
 </head>
 <body>
 
-<header>
+<div class="page-layout">
+<%@ include file = "header.html" %>
 
-<a href="index.jsp" class="home-link">
-<h1> Provisio </h1>
-</a>
 
-<div id="navbar">
-
-	<button onclick="location.href = 'index.jsp'" type="button"> Home</button>
-
-	<button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
-	
-	<button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
-	
-	<button onclick="location.href = 'reservations.jsp'" type="button"> Reservations</button>
-	
-	<button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
-	
-</div>
-
-</header>
 <br>
 
 <jsp:useBean id="javaBeans" class="javaBeans.RegistrationSQL" />
@@ -262,6 +270,10 @@ a.header-link:active {
     <input type="hidden" name="run" value=1>
     
   </form>
+  
+
+<%@ include file = "footer.html" %>
+</div>
 		
 </body>
 </html>
