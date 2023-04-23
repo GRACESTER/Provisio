@@ -30,19 +30,29 @@ body {
     padding: 0;
     background-color: #89b2f5;
 }
-header {
-    background-color: #0252d4;
-    padding: 20px;
-    text-align: left;
+
+.header{
+    background-color: #333;
+    text-align: center;
+    width: 100%;
+    padding: 20px 0;
 }
-h1 {
-    color: black;
+.header a
+{
+    text-decoration: none;
+}
+h1{
+    text-align: left;
+    padding-left: 20px;
+    color: white;
     font-size: 32px;
     margin: 0;
+    font-weight: 700;
 }
+
 #navbar {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     padding: 10px 0;
 }
 button {
@@ -60,6 +70,13 @@ button {
 }
 button:hover {
     background-color: #45a049;
+}
+
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .container {
     max-width: 800px;
@@ -165,7 +182,7 @@ a.header-link:active {
 {
 	
 	background-color: #0252d4;
-	height: 2000px;
+	/* height: 2000px; */
 	width: 700px;
 	margin: 0 auto;
 	text-align: center;
@@ -277,32 +294,27 @@ select option {
   outline: none;
   border-color: #0252d4;
 }
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    color: white;
+    background-color: #333;
+    padding: 15px 0;
+}
+.footer p {
+    padding: 0 25px 0;
+}
+
 </style>
 
 </head>
 <body>
 
-<header>
+<div class="page-layout">
+<%@ include file = "header.html" %>
 
-<a href="index.jsp" class="home-link">
-<h1> Provisio </h1>
-</a>
 
-<div id="navbar">
-
-	<button onclick="location.href = 'index.jsp'" type="button"> Home</button>
-
-	<button onclick="location.href = 'Registration.jsp'" type="button"> Registration</button>
-	
-	<button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
-	
-	<button onclick="location.href = 'Reservation-Booking.jsp'" type="button"> Reservations</button>
-	
-	<button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
-	
-</div>
-
-</header>
 <br>
 
 
@@ -413,6 +425,9 @@ select option {
   	
   	</div>
   	 </form>
+
+<%@ include file = "footer.html" %>
+</div>
 		
 </body>
 
