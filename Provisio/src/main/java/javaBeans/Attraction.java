@@ -1,3 +1,15 @@
+/*
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/23/2023
+	Module 9.1: Web Dev Assignment
+
+	
+	This class will query the Attraction information to return to the locations section so that there will be additional information available
+
+*/
+
+
+
 package javaBeans;
 import java.sql.*;
 import java.util.ArrayList;

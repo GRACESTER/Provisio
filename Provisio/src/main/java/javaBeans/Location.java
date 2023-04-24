@@ -1,3 +1,14 @@
+/*
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/23/2023
+	Module 9.1: Web Dev Assignment
+
+	
+	This class will be used to return all of the location data to the Location.jsp page.
+
+*/
+
+
 package javaBeans;
 import java.sql.*;
 import java.util.ArrayList;
