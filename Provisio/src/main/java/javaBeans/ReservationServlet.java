@@ -1,3 +1,14 @@
+/*
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/23/2023
+	Module 9.1: Web Dev Assignment
+
+	
+	This servlet will be used to query and return the data for the Reservation-Lookup.jsp page.
+
+*/
+
+
 package javaBeans;
 
 import java.io.IOException;

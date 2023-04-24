@@ -1,3 +1,14 @@
+/*
+	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/23/2023
+	Module 9.1: Web Dev Assignment
+
+	
+	This Java class stores the connection information for the Database
+*/
+
+
+
 package javaBeans;
 import java.sql.*;
 
