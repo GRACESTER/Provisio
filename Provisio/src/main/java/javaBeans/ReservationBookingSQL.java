@@ -203,6 +203,10 @@ public class ReservationBookingSQL {
 
 		String dbTable = dbSchema + ".reservations";
 		
+		int customerID = AccountDetails.customerID;
+		System.out.println("Reservation-Booking: Customer ID is currently " + customerID);
+		
+		
 		
 			try 
 			{
@@ -214,28 +218,26 @@ public class ReservationBookingSQL {
 
 				Statement stmt = conn.createStatement();
 
-
-
 				//Create random ID for record
 
 				double rand = Math.random() * 100000;
 
 				id = (int)rand;
 				
+				//If AccountDetails.customerID is 0, generate a random id so a Guest can make a reservation
+
+				if(customerID == 0)
+				{
+					rand = Math.random() * 100000;
+					customerID = (int)rand;
+				}
+			
+
 				
-				///////////////////////////////////////////////////////////////////////
-				
-				//STATIC VALUES FOR QUERY TESTING
-				
-				//Create random customerID (TESTING)
-				rand = Math.random() * 100000;
-				int customerID = (int)rand;
+			
 		
 
 				//Insert data into table
-
-
-
 
 				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, roomID, guests, wifi, breakfast, parking, price) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 				pstmt.setInt(1, id);

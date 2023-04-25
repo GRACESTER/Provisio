@@ -16,7 +16,7 @@
     pageEncoding="ISO-8859-1"%>
  <%@page import="java.sql.*"%>
 
- <%@page import="javaBeans.ReservationLookup"%>
+ <%@page import="javaBeans.ReservationServlet"%>
 
 <!DOCTYPE html>
 <html>
@@ -331,7 +331,7 @@ td{
 <body>
 
 <div class="page-layout">
-<%@ include file = "header.html" %>
+<%@ include file = "header.jsp" %>
 
 
 <br>

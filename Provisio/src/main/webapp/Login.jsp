@@ -15,8 +15,6 @@
     pageEncoding="ISO-8859-1"%>
 
  <%@page import="java.sql.*"%>
-    <%@page import="java.sql.*"%>
-
     <%@page import="javaBeans.LoginSQL"%>
 <!DOCTYPE html>
 <html>
@@ -192,7 +190,7 @@ h2 {
 <body>
 
 <div class="page-layout">
-<%@ include file = "header.html" %>
+<%@ include file = "header.jsp" %>
 
 <jsp:useBean id="javaBeans" class="javaBeans.LoginSQL" />
 	<jsp:setProperty name="javaBeans" property="userEmail" param="userEmailField"/>
@@ -207,10 +205,10 @@ h2 {
         <div class="form-container form-left">
             <h2>Please Sign-in</h2>
             
-            <!-- <form action="LoginServlet" method="post"> -->
             	<jsp:setProperty name="javaBeans" property="runTime" param="run"/>
 				<form method="post">
                 <div class="form-group">
+                
                     <label>Email Address</label>
                     <input type="email" name="userEmailField" class="form-control"/>
                 </div>
@@ -226,8 +224,9 @@ h2 {
                     <%= request.getAttribute("errorMessage") %>
                 </div>
                 
-                <div class="form-group">
-                    <input class="btn btn-primary" type="submit" value="SIGN-IN" />   
+                <div class="form-group"> 
+                    <input class="btn btn-primary" type="submit" value="SIGN-IN" />
+                     <input type="hidden" name="run" value=1>   
                 </div>
             </form>
         </div>
