@@ -10,10 +10,23 @@
 
  -->
 
+<%@page import="javaBeans.AccountDetails"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
  <%@page import="java.sql.*"%>
     <%@page import="javaBeans.RegistrationSQL"%>
+    
+    <% 
+    	if(AccountDetails.customerID > 0)
+    		{
+    			System.out.println("Customer must be logged in! Here is their number: " + AccountDetails.customerID);
+    			response.sendRedirect("index.html");
+    		}
+    	else
+    	{
+    		System.out.println("Customer must NOT be logged in! Here is hopefully a zero: " + AccountDetails.customerID);
+    	}
+    %>
 <!DOCTYPE html>
 <html>
 <head>	

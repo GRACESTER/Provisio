@@ -53,6 +53,7 @@ public class LoginSQL {
 	{
 
 		this.userEmail = userEmail;
+		System.out.println("It's me");
 
 	}
 	
@@ -61,6 +62,7 @@ public class LoginSQL {
 	{
 
 		this.userPassword = userPassword;
+		System.out.println("Hi!");
 
 	}
 
@@ -71,10 +73,10 @@ public class LoginSQL {
 	public void setRunTime(int runTime)
 
 	{
-
+		System.out.println("I'm the problem!");
 		this.runTime = runTime;
 
-		//ReturnQuery();
+		ReturnQuery1();
 
 	}
 	
@@ -82,6 +84,7 @@ public class LoginSQL {
 	
 	public static byte[] getSHA(String input) throws NoSuchAlgorithmException
     {
+		System.out.println("I guess it could also be me...");
         // Static getInstance method is called with hashing SHA
         MessageDigest md = MessageDigest.getInstance("SHA-256");
  
@@ -93,6 +96,7 @@ public class LoginSQL {
      
     public static String toHexString(byte[] hash)
     {
+    	System.out.println("I guess it could also be me too...");
         // Convert byte array into signum representation
         BigInteger number = new BigInteger(1, hash);
  
@@ -110,6 +114,66 @@ public class LoginSQL {
     
     //End of Encryption
 
+    public void ReturnQuery1()
+
+	{
+    	System.out.println("It's me.");
+		String dbSchema = "provisio";
+
+		String dbUserName = "hotelManagement";
+
+		String dbPassword = "roompass123";
+
+
+		String dbTable = dbSchema + ".customers";
+		String hashedPassword = "";
+
+		try 
+		{
+			hashedPassword = toHexString(getSHA(userPassword));
+		}
+		catch(Exception e)
+		{
+		}
+
+		try 
+		{
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbSchema, dbUserName, dbPassword);
+
+			Statement stmt = conn.createStatement();
+
+
+
+			ResultSet rs = stmt.executeQuery("SELECT customerID, firstName, lastName, userEmail FROM " + dbTable + " WHERE userEmail = '" + userEmail + "' AND userPassword = '" + hashedPassword + "'");
+
+			results = rs;
+			
+			while(rs.next())
+			{
+				AccountDetails.customerID = rs.getInt(1);
+				AccountDetails.firstName = rs.getString(2);
+				AccountDetails.userEmail = rs.getString(3);
+				System.out.println("Customer ID: " + rs.getString(1));
+				System.out.println("First Name" + rs.getString(2));
+				System.out.println("User Email: " + rs.getString(3));
+			}
+
+			System.out.println("Finished Evaluating");
+
+			
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			
+		}	
+		
+	}
 
 	public ResultSet ReturnQuery()
 
@@ -145,9 +209,19 @@ public class LoginSQL {
 
 
 
-			ResultSet rs = stmt.executeQuery("SELECT * FROM " + dbTable + " WHERE userEmail = '" + userEmail + "' AND userPassword = '" + hashedPassword + "'");
+			ResultSet rs = stmt.executeQuery("SELECT customerID, firstName, userEmail FROM " + dbTable + " WHERE userEmail = '" + userEmail + "' AND userPassword = '" + hashedPassword + "'");
 
 			results = rs;
+			
+			while(rs.next())
+			{
+				AccountDetails.customerID = rs.getInt(1);
+				AccountDetails.firstName = rs.getString(2);
+				AccountDetails.userEmail = rs.getString(3);
+				System.out.println("Customer ID: " + rs.getString(1));
+				System.out.println("First Name" + rs.getString(2));
+				System.out.println("User Email: " + rs.getString(3));
+			}
 
 			return rs;
 

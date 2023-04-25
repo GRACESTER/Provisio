@@ -23,7 +23,7 @@
     
      <body>
 	     <div class="page-layout">
-			<%@ include file = "header.html" %>
+			<%@ include file = "header.jsp" %>
 	
 	        <div class="content">
 	            

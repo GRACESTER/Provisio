@@ -27,7 +27,6 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
         <title>Hotel Locations</title>
 
         <link rel="stylesheet" href="/Provisio/Provisio.css" type="text/css">
@@ -39,7 +38,7 @@
 
     <body>
         <div class="page-layout">
-			<%@ include file = "header.html" %>
+			<%@ include file = "header.jsp" %>
 	
 	        <div class="content-location">
 	            <h2 class="body-title">Locations</h2>

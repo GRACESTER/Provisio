@@ -167,6 +167,14 @@ public class RegistrationSQL
 				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(customerID, firstName, lastName, userEmail, userPassword) VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + userEmail + "', + '" + hashedPassword + "')");
 
 				pstmt.executeUpdate();
+				
+				AccountDetails.customerID = id;
+				AccountDetails.userEmail = userEmail;
+				AccountDetails.firstName = firstName;
+				
+				System.out.println("LOGGED IN Customer ID: " + AccountDetails.customerID);
+				System.out.println("LOGGED IN Customer Email: " + AccountDetails.userEmail);
+				System.out.println("LOGGED IN Customer First Name: " + AccountDetails.firstName);
 
 			}
 
