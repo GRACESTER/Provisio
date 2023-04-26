@@ -25,7 +25,7 @@
 	<!-- Include jQuery library -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	<title>Provisio Registration Page</title>
+	<title>Provisio Reservation-Lookup Page</title>
 <style>
 body {
     font-family: Arial, sans-serif;

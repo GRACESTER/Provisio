@@ -27,6 +27,7 @@
     		System.out.println("Customer must NOT be logged in! Here is hopefully a zero: " + AccountDetails.customerID);
     	}
     %>
+    
 <!DOCTYPE html>
 <html>
 <head>	
@@ -221,7 +222,7 @@ a.header-link:active {
 	
 	
 	<jsp:setProperty name="javaBeans" property="runTime" param="run"/>
-	<form method="Post" class="form-container" action="Registration.jsp" onsubmit="validateForm()">
+	<form method="Post" class="form-container" onsubmit="validateForm()">
 	
 	* Indicates Required Field
 	<br>
@@ -255,6 +256,8 @@ a.header-link:active {
         }
         return true;
     }
+    
+    
 	</script>
     
     <div class="form-group">
@@ -284,6 +287,14 @@ a.header-link:active {
     
   </form>
   
+  <%
+  if(AccountDetails.customerID > 0)
+	  {
+	  String site = new String("index.jsp");
+      response.setStatus(response.SC_MOVED_TEMPORARILY);
+      response.setHeader("Location", site); 
+	  }
+	 %>
 
 <%@ include file = "footer.html" %>
 </div>

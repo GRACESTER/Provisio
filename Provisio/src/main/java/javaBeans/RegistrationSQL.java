@@ -125,7 +125,7 @@ public class RegistrationSQL
     
     //End of Encryption
 
-	public static void RunInsertQuery()
+	public static boolean RunInsertQuery()
 
 	{
 
@@ -175,6 +175,8 @@ public class RegistrationSQL
 				System.out.println("LOGGED IN Customer ID: " + AccountDetails.customerID);
 				System.out.println("LOGGED IN Customer Email: " + AccountDetails.userEmail);
 				System.out.println("LOGGED IN Customer First Name: " + AccountDetails.firstName);
+				
+				return true;
 
 			}
 
@@ -183,12 +185,13 @@ public class RegistrationSQL
 			{
 
 				e.printStackTrace();
+				return false;
 
 			}
 		}
 		catch(Exception e)
 		{
-			
+			return false;
 		}
 
 

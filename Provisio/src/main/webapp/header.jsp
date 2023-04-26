@@ -1,5 +1,6 @@
 
      <%@ page import="javaBeans.AccountDetails" %>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="header">
     <a href="index.html" class="home-link">
         <h1> Provisio </h1>
@@ -16,7 +17,7 @@
     		
    
     
-        <button onclick="location.href = 'index.html'" type="button"> Home</button>
+        <button onclick="location.href = 'index.jsp'" type="button"> Home</button>
     
         <button onclick="location.href = 'aboutUs.jsp'" type="button"> About Us</button>
         
@@ -38,9 +39,39 @@
         	}
         	else
         	{
+        	
         %>		
-        		 <button onclick="location.href = 'Registration.jsp'" type="button"> Sign Out</button>
-        	<% 	 
+        
+        <script>
+        
+        function CallSignout()
+        {
+        	var value = 1;
+     
+        	$.ajax
+        	({
+            	url: 'SignOut',
+            	type: 'POST',
+            	data: { value: value },
+            	success: function(response) 
+            	{
+              		// Handle the server response
+              		console.log("Server response: " + response); 
+              		location.href="index.html";
+            	},
+            	error: function(xhr, status, error) 
+            	{
+              		// Handle the error
+              		console.error("AJAX error: " + error);
+            	}
+          	});
+        
+        }
+        </script>
+        		<form action="${pageContext.request.contextPath}/SignOut.java" method="post">
+        		 	<button type="button" name="button1" onclick="CallSignout()"> Sign Out</button>
+        		 </form>
+        <% 	 
         	}
         %>	 
         	
