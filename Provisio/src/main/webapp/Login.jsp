@@ -244,6 +244,14 @@ h2 {
     
     </div>
 </div>
+  <%
+  if(AccountDetails.customerID > 0)
+	  {
+	  String site = new String("index.jsp");
+      response.setStatus(response.SC_MOVED_TEMPORARILY);
+      response.setHeader("Location", site); 
+	  }
+	 %>
 
 <%@ include file = "footer.html" %>
 </div>
