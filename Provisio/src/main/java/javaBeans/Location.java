@@ -16,12 +16,14 @@ import java.util.ArrayList;
 
 public class Location implements java.io.Serializable 
 {
+    //attributes to match database result
     private int ID = 0;
     private String name = null;
     private String address = null;
     private String pictureURL = null;
     private String notes = null;
 
+    //returns array of location/hotel ids
 	static public ArrayList<Integer> getLocations()
 	{
 		ArrayList<Integer> LocID = new ArrayList<Integer>();
@@ -46,6 +48,7 @@ public class Location implements java.io.Serializable
 		return LocID;
 	}
 
+    //constructor that creates new location from database record based on given hotel id
 	public Location(int ID)
 	{
 		try 
@@ -79,6 +82,7 @@ public class Location implements java.io.Serializable
 		this.notes = notes;
 	}
 
+    //getters for attributes
 	public int getID()
     {
 		return ID;
