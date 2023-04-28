@@ -93,7 +93,7 @@ h3{
 
 #landing-page-gallery{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 10px;
 }
 #landing-page-gallery figure {
@@ -150,11 +150,52 @@ h3{
 h3.attraction-title {
     text-align: left;
 }
-
 .attraction-item {
     display: grid;
     grid-template-columns: 20% auto;
     gap: 15px;
+}
+
+.content-rewards
+{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.rewards-table
+{
+    border-collapse: collapse;
+}
+.rewards-table td, .rewards-table th
+{
+    border: 2px solid blue;
+    padding: 10px;
+}
+.rewards-table tr:nth-child(odd)
+{
+    background-color: #5797fe;
+}
+.rewards-table tr:hover
+{
+    background-color: #284777;
+    color: white;
+}
+.rewards-table th
+{
+    border: 2px solid darkblue;
+    text-align: left;
+    background-color: darkblue;
+    color: white;
+}
+.number
+{
+    text-align: right;
+}
+.total, .rewards-table th
+{
+    font-size: 20px;
+    font-weight: 600;
 }
 
 
@@ -186,7 +227,7 @@ dd{
 
 #aboutus-gallery{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 10px;
     padding-top: 10px;
     background-color: #0252d4;
@@ -200,7 +241,7 @@ dd{
 #aboutus-gallery img {
     width:150px;
     height:150px;
-    border: 3px solid blue;
+    border: 3px solid #619cfa;
     margin-left: 10%;
 }
 #aboutus-gallery figcaption {
@@ -213,10 +254,10 @@ dd{
 }
 #aboutus{
     font-family: 'arial', sans-serif;;
-    color: #19191A;
+    color: white;
     size: 16px;
     padding: 30px;
-    background-color: red;
+    background-color: blue;
 }
 
 #contactus{

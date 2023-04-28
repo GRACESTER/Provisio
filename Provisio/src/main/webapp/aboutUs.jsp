@@ -25,7 +25,7 @@
 	     <div class="page-layout">
 			<%@ include file = "header.jsp" %>
 	
-	        <div class="content">
+	        <div class="content-about">
 	            
 	            <div id="aboutus-gallery">
 	                <div class="grid-item3">

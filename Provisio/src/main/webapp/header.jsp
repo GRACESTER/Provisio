@@ -2,7 +2,7 @@
      <%@ page import="javaBeans.AccountDetails" %>
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="header">
-    <a href="index.html" class="home-link">
+    <a href="index.jsp" class="home-link">
         <h1> Provisio </h1>
     </a>
     
@@ -27,7 +27,7 @@
 		
 		<button onclick="location.href = 'Reservation-Lookup.jsp'" type="button"> Look Up Reservation</button>
         
-        <button onclick="location.href = 'rewardPoints.jsp'" type="button"> Reward Points</button>
+        <button onclick="location.href = 'RewardsPoints.jsp'" type="button"> Reward Points</button>
         <% 
         	if(AccountDetails.customerID == 0)
         	{
