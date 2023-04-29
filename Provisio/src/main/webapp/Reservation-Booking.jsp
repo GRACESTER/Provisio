@@ -29,6 +29,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #89b2f5;
+    color: white;
 }
 
 .header{
@@ -418,13 +419,31 @@ select option {
 		 	<td></td>
 
 		 	<td><input class="btn btn-primary" type="submit" value="Book Hotel Stay">
-		 		<input class="btn btn-primary" type="button" value="View Summary" onclick="location.href ='Reservation-Summary.jsp'">
 		 	</td>
 		 		 	
   	</table>
   	
   	</div>
+  	<script>
+
+var confirmation = localStorage.getItem("Confirmed");
+
+if(confirmation > 0)
+	{
+		localStorage.clear();
+		window.location.assign("index.jsp");
+		
+	}
+	</script>
   	 </form>
+  	  <%
+  if(AccountDetails.currentReservationNumber > 0)
+	  {
+	  String site = new String("Reservation-Summary.jsp");
+      response.setStatus(response.SC_MOVED_TEMPORARILY);
+      response.setHeader("Location", site); 
+	  }
+	 %>
 
 <%@ include file = "footer.html" %>
 </div>

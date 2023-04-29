@@ -8,6 +8,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@page import="javaBeans.AccountDetails"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -385,7 +386,7 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
 	          // Create an instance of the ReservationBookingSQL class
 	          ReservationBookingSQL booking = new ReservationBookingSQL();     
 	          // Call the ConfirmReservation() method with the reservation ID
-	          booking.ConfirmReservation(javaBeans.getId(), totalPrice);
+	          booking.ConfirmReservation(javaBeans.getId(), totalPrice, loyaltyPointsEarned);
 	         System.out.println("Reservation confirmed!");
 	
 	      } else if(button != null && button.equals("Cancel Reservation")) {
@@ -399,11 +400,29 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
 	  
    }
 %>
+<script>
 
+var confirmation = localStorage.getItem("Confirmed");
+
+if(confirmation > 0)
+	{
+		localStorage.clear();
+		window.location.assign("index.jsp");
+		
+	}
+	
+	function ConfirmReservation()
+	{
+		alert("Reservation Confirmed!");
+		localStorage.setItem("Confirmed", 1);
+		
+		//console.log("Hello, World!");
+	}
+</script>
 
     <form method="post" action="">
         <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
-        <input type="submit" name = button value="Confirm Reservation" />
+        <input type="submit" name = button value="Confirm Reservation" onclick="ConfirmReservation()" />
     </form>
     <form method="post" action="">
         <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
@@ -416,7 +435,19 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
     <p>Error: Reservation not found.</p>
 <%  } %>
 
-
+ <%
+  if(AccountDetails.currentReservationNumber == 0)
+	  {
+	  String site = new String("Reservation-Booking.jsp");
+      response.setStatus(response.SC_MOVED_TEMPORARILY);
+      response.setHeader("Location", site); 
+	  }
+ 
+ if(AccountDetails.currentReservationNumber > 1)
+ {
+	 AccountDetails.currentReservationNumber = 0;
+ }
+	 %>
 <%@ include file = "footer.html" %>
 </div>
 		
