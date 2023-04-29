@@ -164,7 +164,7 @@ public class RegistrationSQL
 				//Insert data into table
 
 
-				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(customerID, firstName, lastName, userEmail, userPassword) VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + userEmail + "', + '" + hashedPassword + "')");
+				PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(customerID, firstName, lastName, userEmail, userPassword, loyaltyPoints) VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + userEmail + "', + '" + hashedPassword + "', 0)");
 
 				pstmt.executeUpdate();
 				

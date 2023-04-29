@@ -21,6 +21,18 @@
     </head>
 
     <body>
+    
+    <script>
+
+var confirmation = localStorage.getItem("Confirmed");
+
+if(confirmation > 0)
+	{
+		localStorage.clear();
+		window.location.assign("index.jsp");
+		
+	}
+	</script>
         <div class="page-layout">
 
          <%@ include file = "header.jsp" %>

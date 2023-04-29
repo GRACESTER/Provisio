@@ -254,6 +254,7 @@ public class ReservationBookingSQL {
 
 				pstmt.executeUpdate();
 				
+				AccountDetails.currentReservationNumber = id;
 
 				System.out.println("inserted");
 
@@ -301,7 +302,7 @@ public class ReservationBookingSQL {
 			Statement stmt = conn.createStatement();
 
 
-
+			
 
 			ResultSet rs = stmt.executeQuery("SELECT * FROM " + dbTable + " WHERE reservationID = " + id);
 
@@ -326,7 +327,7 @@ public class ReservationBookingSQL {
 
 	}
 	
-	public void ConfirmReservation(int reservationID, double price)
+	public void ConfirmReservation(int reservationID, double price, int totalLoyaltyPoints)
 	{	
 		System.out.println("Confirming Reservation!");
 		String dbSchema = "provisio";
@@ -340,7 +341,7 @@ public class ReservationBookingSQL {
 		
 		try
 		{
-			System.out.println("Confirming Reservation! - Starting SQL! Reservation ID is " + reservationID + " And price is " + price);
+			System.out.println("Confirming Reservation! - Starting SQL! Reservation ID is " + reservationID + " And price is " + price + " and the loyalty points are " + totalLoyaltyPoints);
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
 
@@ -351,6 +352,10 @@ public class ReservationBookingSQL {
 			System.out.println("Confirming Reservation! - Preparing Update Statement");
 			PreparedStatement pstmt = conn.prepareStatement("UPDATE provisio.reservations SET price = " + price + " WHERE reservationID = " + reservationID);	
 			pstmt.executeUpdate();
+			
+			pstmt = conn.prepareStatement("UPDATE provisio.customers SET loyaltyPoints = loyaltyPoints + " + totalLoyaltyPoints + " WHERE customerID = " + AccountDetails.customerID);	
+			pstmt.executeUpdate();
+			
 			
 			System.out.println("Reservation has been updated and confirmed!");
 		}
@@ -388,6 +393,7 @@ public class ReservationBookingSQL {
 			pstmt.executeUpdate();
 		
 			System.out.println("Reservation has been Cancelled!");
+			AccountDetails.currentReservationNumber = 0;
 		
 		}
 		catch(Exception e)
