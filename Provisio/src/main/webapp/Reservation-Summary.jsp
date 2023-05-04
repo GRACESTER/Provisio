@@ -325,7 +325,7 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
  	System.out.println(prevResID);
 	
     ResultSet results = javaBeans.ReturnQuery();
-    double roomPricePerNight = 150.00;
+    double roomPricePerNight = 1;
     double wifiPrice = 12.99;
     double breakfastPricePerNight = 8.99;
     double parkingPricePerNight = 19.99;
@@ -346,6 +346,21 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
         java.util.Date checkoutDate = java.sql.Date.valueOf(checkout);
         long daysBetween = (checkoutDate.getTime() - checkinDate.getTime()) / (1000 * 60 * 60 * 24);
         int numberOfNights = (int) daysBetween;
+        
+        switch (roomID) {
+        case "1":
+            roomPricePerNight = 110;
+            break;
+        case "2":
+        	roomPricePerNight = 125;
+            break;
+        case "3":
+        	roomPricePerNight = 150;
+            break;
+        case "4":
+        	roomPricePerNight = 165;
+            break;
+    	}
 
         double totalPrice = numberOfNights * roomPricePerNight;
         if (wifi == 1) {
