@@ -102,10 +102,10 @@ VALUES
 
 INSERT INTO Provisio.Rooms(roomID, roomDescription, roomPrice)
 VALUES
-(1, "Double Full", 110),
-(2, "Queen", 125),
-(3, "Double Queen", 150),
-(4, "King", 165)
+(1, "Double Full", 115.50),
+(2, "Queen", 131.50),
+(3, "Double Queen", 157.50),
+(4, "King", 173.25)
 ;
 
 
