@@ -32,8 +32,7 @@
         	if(AccountDetails.customerID == 0)
         	{
         %>
-        		 <button onclick="location.href = 'Login.jsp'" type="button"> Log In</button>
-        		 <button onclick="location.href = 'Registration.jsp'" type="button"> Create Account</button>
+        		 <button onclick="location.href = 'Login.jsp'" type="button"> Log In/Create Account</button>
         <%
         
         	}

@@ -9,11 +9,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@page import="javaBeans.AccountDetails"%>
+     <%@page import="java.util.Calendar" %>
+     <%@page import="java.text.SimpleDateFormat" %>
+     <%@page import="java.text.ParseException" %>
+     <%@page import="java.time.LocalDate" %>
+     <%@page import="java.util.Date" %>
+     <%@page import="java.time.ZoneId" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Reservation Summary Page</title>
+
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -39,7 +46,6 @@ h1{
     margin: 0;
     font-weight: 700;
 }
-
 #navbar {
     display: flex;
     justify-content: center;
@@ -61,14 +67,17 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
+button.center {
+    display: block;
+    margin: 20px auto;
+    align: center
+}
 .page-layout {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
 }
-
 .container {
     max-width: 800px;
     margin: 30px auto;
@@ -118,177 +127,46 @@ input[type="checkbox"] {
     border: 1px solid #ccc;
 }
 .alert-secondary {
-    background-color: #f9f9f9;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+    color: #383d41;
 }
-h2 {
-    margin-top: 0;
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
 }
-#forgot-password {
-    margin-top: 15px;
-    text-align: right;
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
 }
-.forms-wrapper {
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+    color: #856404;
+}
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+.alert-light {
+    background-color: #fefefe;
+    border-color: #fdfdfe;
+    color: #818182;
+}
+.alert-dark {
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+    color: #1b1e21;
+}
+/* Add the following styles to center the buttons */
+.buttons-wrapper {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
 }
-.form-container {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-}
-.form-left {
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 4px;
-}
-.form-right {
-    margin-left: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-a.header-link,
-a.header-link:hover,
-a.header-link:visited,
-a.header-link:active {
-  text-decoration: none;
-  color: inherit;
-}
-#reg-hotel-info
-{
-	
-	background-color: #0252d4;
-	height: 200px;
-	width: 700px;
-	margin-left: auto;
-	margin-right: auto;
-	display: flex;
-  	justify-content: center;
-  	align-items: center;
-	
-}
-#reg-hotel-form
-{
-	
-	background-color: #0252d4;
-	/* height: 2000px; */
-	width: 700px;
-	margin: 0 auto;
-	text-align: center;
-	
-}
-#reg-hotel-info-image
-{
-	background-color: gray;
-	width: 20%;
-	height: 20%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 10px;
-}
-#reg-hotel-info-textbox
-{
-	
-	width: 20%;
-	height: 100%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 10px;
-}
-#reg-hotel-form-left
-{
-	background-color: gray;
-	width: 20%;
-	height: 100%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 10px;
-}
-#reg-hotel-form-right
-{
-	
-	width: 20%;
-	height: 100%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: 10px;
-}
-table {
-  border-collapse: collapse;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 14px;
-}
-table th {
-  color: #444444;
-  font-weight: bold;
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #cccccc;
-}
-table td {
-  padding: 8px;
-  border-bottom: 1px solid #cccccc;
-}
-select {
-  width: 50%;
-  padding: 8px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  background-color: #ffffff;
-  font-size: 14px;
-  color: #444444;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23444444' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-  background-position: right 8px center;
-  background-repeat: no-repeat;
-}
-select:focus {
-  outline: none;
-  border-color: #0252d4;
-}
-select option {
-  background-color: #ffffff;
-  color: #444444;
-  font-size: 14px;
-  padding: 8px;
-}
-.date-picker {
-  position: relative;
-}
-.date-picker input {
-  width: 40%;
-  padding: 8px;
-  border: 1px solid #cccccc;
-  border-radius: 4px;
-  background-color: #ffffff;
-  font-size: 14px;
-  color: #444444;
-  text-align: center;
-}
-.date-picker input::-webkit-calendar-picker-indicator {
-  position: absolute;
-  top: 50%;
-  right: calc(50% - 70px);
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23444444' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V9h14v11z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  
-}
-.date-picker input:focus {
-  outline: none;
-  border-color: #0252d4;
-}
-
 .footer {
     margin-top: auto;
     width: 100%;
@@ -299,7 +177,33 @@ select option {
 .footer p {
     padding: 0 25px 0;
 }
-
+table {
+    background-color: #0252d4;
+    color: white;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 100%;
+    height: auto%;
+    max-height: 80vh;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+h2 {
+    text-align: center;
+}
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin:0 auto;
+    width: 100%;
+    overflow:auto;
+    
+}
 </style>
 
 
@@ -330,7 +234,6 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
     double breakfastPricePerNight = 8.99;
     double parkingPricePerNight = 19.99;
     int loyaltyPointsPerNight = 150;
-
     if (results != null && results.next()) {
     	int id = results.getInt("reservationID");
         String checkin = results.getString("checkIn");
@@ -341,28 +244,58 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
         int wifi = results.getInt("wifi");
         int breakfast = results.getInt("breakfast");
         int parking = results.getInt("parking");
-
         java.util.Date checkinDate = java.sql.Date.valueOf(checkin);
         java.util.Date checkoutDate = java.sql.Date.valueOf(checkout);
         long daysBetween = (checkoutDate.getTime() - checkinDate.getTime()) / (1000 * 60 * 60 * 24);
         int numberOfNights = (int) daysBetween;
         
+     	int[][] holidayDates = {
+     			{Calendar.JULY, 4},//4th of july holiday
+     			{Calendar.DECEMBER, 31},//NYE holiday
+     			{Calendar.JANUARY, 1} //NY day holiday
+     	};
+     	
+     	//setting room price        
         switch (roomID) {
         case "1":
-            roomPricePerNight = 110;
+            roomPricePerNight = 115.50;
             break;
         case "2":
-        	roomPricePerNight = 125;
+        	roomPricePerNight = 131.50;
             break;
         case "3":
-        	roomPricePerNight = 150;
+        	roomPricePerNight = 157.50;
             break;
         case "4":
-        	roomPricePerNight = 165;
+        	roomPricePerNight = 173.25;
             break;
     	}
-
-        double totalPrice = numberOfNights * roomPricePerNight;
+     	
+     	double priceIncrease = 1.05;
+     	double totalPrice = 0.0;
+     	
+     	System.out.println("Checkin Date: " + checkinDate);
+     	
+     	LocalDate checkinLocalDate = new java.sql.Date(checkinDate.getTime()).toLocalDate();
+     	
+     	for (int i = 0; i < numberOfNights; ++i) {
+     		boolean isHolidayDate = false;
+     		
+     		int currentMonth = checkinLocalDate.getMonthValue();
+     		int currentDayOfMonth = checkinLocalDate.getDayOfMonth();
+     		for (int[] date : holidayDates) {
+     			if (currentMonth == date[0] + 1 && currentDayOfMonth == date[1]){
+     				isHolidayDate = true;
+     				break;
+     			}
+     		}
+     		
+     		double currentPrice = isHolidayDate ? roomPricePerNight * priceIncrease : roomPricePerNight;
+     		totalPrice += currentPrice;
+     		
+     		checkinLocalDate = checkinLocalDate.plusDays(1);
+     	}
+        //double totalPrice = numberOfNights * roomPricePerNight;
         if (wifi == 1) {
             totalPrice += wifiPrice;
         }
@@ -372,22 +305,56 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
         if (parking == 1) {
             totalPrice += parkingPricePerNight * numberOfNights;
         }
-
         int loyaltyPointsEarned = numberOfNights * loyaltyPointsPerNight;
 %>
 
 
     <h2>Reservation Summary</h2>
-    <p>Reservation ID: <%= id %> </p>
-    <p>Check-in Date: <%= checkin %></p>
-    <p>Check-out Date: <%= checkout %></p>
-   	<p>Room Size: <%= roomID != null ? javaBeans.getRoomDescription(String.valueOf(roomID)) : "NA" %></p>
-    <p>Number of Guests: <%= guests %></p>
-    <p>Hotel ID: <%= hotelID %></p>
-    <p>Total Price: $<%= String.format("%.2f", totalPrice) %></p>
-    <p>Points Earned: <%= loyaltyPointsEarned %></p>
+    <table border="1">
+    <tr>
+    <th>Reservation ID</th>
+    <td><%= id %></td> 
+    </tr>
 
+    <tr>
+    <th>Check-in Date</th> 
+    <td><%= checkin %></td> 
+    </tr>
 
+    <tr>
+    <th>Check-out Date</th> 
+    <td><%= checkout %></td> 
+    </tr>
+
+    <tr>
+   	<th>Room Size</th>
+   	<td> <%= roomID != null ? javaBeans.getRoomDescription(String.valueOf(roomID)) : "NA" %></td> 
+   	</tr>
+
+   	<tr>
+    <th>Number of Guests</th> 
+    <td><%= guests %></td> 
+    </tr>
+
+    <tr>
+    <th>Hotel ID</th> 
+    <td><%= hotelID %></td> 
+    </tr>
+
+    <tr>
+    <th>Amenities</th>
+    <td><%=wifi%> <%=breakfast%> <%=parking%></td>
+    </tr>
+
+    <tr>
+    <th>Total Price</th> 
+    <td>$<%= String.format("%.2f", totalPrice) %></td> 
+    </tr>
+
+    <tr>
+    <th>Points Earned</th> 
+    <td><%= loyaltyPointsEarned %></td> 
+    </tr>    
 <%
    // Check if the form has been submitted
    
@@ -415,37 +382,6 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
 	  
    }
 %>
-<script>
-
-var confirmation = localStorage.getItem("Confirmed");
-
-if(confirmation > 0)
-	{
-		localStorage.clear();
-		window.location.assign("index.jsp");
-		
-	}
-	
-	function ConfirmReservation()
-	{
-		alert("Reservation Confirmed!");
-		localStorage.setItem("Confirmed", 1);
-		
-		//console.log("Hello, World!");
-	}
-</script>
-
-    <form method="post" action="">
-        <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
-        <input type="submit" name = button value="Confirm Reservation" onclick="ConfirmReservation()" />
-    </form>
-    <form method="post" action="">
-        <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
-        <input type="submit" name="button" value="Cancel Reservation" />
-    </form>
-    
-   
-
 <%  } else { %>
     <p>Error: Reservation not found.</p>
 <%  } %>
@@ -463,9 +399,43 @@ if(confirmation > 0)
 	 AccountDetails.currentReservationNumber = 0;
  }
 	 %>
+</table>
+
+
+<script>
+var confirmation = localStorage.getItem("Confirmed");
+if(confirmation > 0)
+	{
+		localStorage.clear();
+		window.location.assign("index.jsp");
+		
+	}
+	
+	function ConfirmReservation()
+	{
+		alert("Reservation Confirmed!");
+		localStorage.setItem("Confirmed", 1);
+		
+		//console.log("Hello, World!");
+	}
+</script>
+<div class="form-wrapper">
+    <form method="post" action="">
+        <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
+        <input type="submit" name = button value="Confirm Reservation" onclick="ConfirmReservation()" class="center" />
+    </form>
+    <form method="post" action="">
+        <input type="hidden" name="reservationID" value="<%= javaBeans.getId() %>" />
+        <input type="submit" name="button" value="Cancel Reservation" class="center" />
+    </form>
+</div>
+
+
+
+
 <%@ include file = "footer.html" %>
 </div>
-		
+
 </body>
 
 </html>
