@@ -1,5 +1,14 @@
 package javaBeans;
 
+/*
+ * 
+ * 	Tim Alvarado, Chris Beatty, Joel Mardock, Grace Steranko
+	04/30/2023
+
+	
+	This page will call a method which will remove user credentials from the session, effectively logging them out of the account.
+ */
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
