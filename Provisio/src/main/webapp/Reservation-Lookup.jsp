@@ -407,7 +407,7 @@ function callJavaMethod(sendValue) {
             	var html5 = "<h4>" + items[3] + "   -   " + items[4] + "</h4>"
             	var html6 = "<h4>" + items[5] + "   -   " + guestCount + "</h4>"
             	var html7 = "<h4>" + items[6] + "</h4>"
-           		var html8 = "<h4>" + items[7] + "(150 Loyalty Points)</h4>"
+           		var html8 = "<h4>$" + items[7] + " (" + items[9] + " Loyalty Points)</h4>"
             	var htmlOutput = html1 + html2 + html3 + html4 + html5 + html6 + html7 + html8;
             	console.log(htmlOutput);
             	htmlFullOutput += htmlOutput;	
@@ -426,6 +426,7 @@ function callJavaMethod(sendValue) {
 		  * 6. Amenities,
 		  * 7. price,
 		  * 8. guests
+		  * 9. loyaltyPoints
 		  */
       document.getElementById("waitForIt").innerHTML = htmlFullOutput;
       

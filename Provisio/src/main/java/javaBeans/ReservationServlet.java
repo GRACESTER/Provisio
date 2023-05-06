@@ -108,7 +108,26 @@ public class ReservationServlet extends HttpServlet {
 
 			
 
-			ResultSet rs = stmt.executeQuery("SELECT reservationID,hotelName,hotelPictureURL,checkIn,checkOut,roomDescription,CONCAT(IF(wifi > 0, 'WiFi ',''), '', IF(breakfast>0, 'Breakfast ', ''), '', IF(parking>0, 'Parking ', '')) AS Amenities,price,guests FROM provisio.reservations r	JOIN provisio.hotels h	ON r.hotelID = h.hotelID JOIN provisio.rooms rm ON r.roomID = rm.roomID WHERE reservationID = " + reservationNumber);
+			ResultSet rs = stmt.executeQuery("SELECT "
+					+ "reservationID,"
+					+ "hotelName,"
+					+ "hotelPictureURL,"
+					+ "checkIn,"
+					+ "checkOut,"
+					+ "roomDescription,"
+					+ "CONCAT(IF(wifi > 0, 'WiFi ',''), '', "
+						+ "IF(breakfast>0, 'Breakfast ', ''), '', "
+						+ "IF(parking>0, 'Parking ', '')) "
+							+ "AS Amenities,"
+					+ "price,"
+					+ "guests,"
+					+ "(SELECT -DATEDIFF(checkIn, checkOut)*150) AS loyaltyPoints "
+					+ "FROM provisio.reservations r	"
+					+ "JOIN provisio.hotels h	"
+						+ "ON r.hotelID = h.hotelID "
+					+ "JOIN provisio.rooms rm "
+						+ "ON r.roomID = rm.roomID "
+					+ "WHERE reservationID = " + reservationNumber);
 			
 			 
 			 /*
@@ -136,10 +155,11 @@ public class ReservationServlet extends HttpServlet {
 			      String roomDescription = rs.getString(6); // roomDescription
 			      String amenities = rs.getString(7); // amenities
 			      String price = rs.getString(8); // price
-			      String guests = rs.getString(9); //guests
+			      String guests = rs.getString(9); //guests		
+			      String loyaltyPoints = rs.getString(10);
 		      
 			      //String[] record = {resID, checkIn, checkOut};	
-			      String total = resID + "," + hotelName + "," + hotelPictureURL + "," + checkIn + "," + checkOut + "," + roomDescription + "," + amenities + "," + price + "," + guests + "|";
+			      String total = resID + "," + hotelName + "," + hotelPictureURL + "," + checkIn + "," + checkOut + "," + roomDescription + "," + amenities + "," + price + "," + guests + "," + loyaltyPoints + "|";
 			      
 			      sendBack += total;
 			    }
