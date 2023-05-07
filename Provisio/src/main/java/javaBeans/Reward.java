@@ -33,7 +33,7 @@ public class Reward implements java.io.Serializable
 		try 
 		{
 			DatabaseBean DBBean = new DatabaseBean();
-            ResultSet results = DBBean.getResults("SELECT reservationID FROM provisio.reservations WHERE customerID = " + custID);
+            ResultSet results = DBBean.getResults("SELECT reservationID FROM provisio.reservations WHERE customerID = " + custID + " ORDER BY reservations.checkIn;");
 
 			while(results.next())
 			{
