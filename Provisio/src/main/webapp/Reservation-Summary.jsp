@@ -244,6 +244,25 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
         int wifi = results.getInt("wifi");
         int breakfast = results.getInt("breakfast");
         int parking = results.getInt("parking");
+        
+        
+        String wifiString = "";
+        String breakfastString = "";
+        String parkingString = "";
+        
+        if(wifi > 0)
+        {
+        	wifiString = "WiFi";
+        }
+        if(breakfast > 0)
+        {
+        	breakfastString = "Breakfast";
+        }
+        if(parking > 0)
+        {
+        	parkingString = "Parking";
+        }
+        
         java.util.Date checkinDate = java.sql.Date.valueOf(checkin);
         java.util.Date checkoutDate = java.sql.Date.valueOf(checkout);
         long daysBetween = (checkoutDate.getTime() - checkinDate.getTime()) / (1000 * 60 * 60 * 24);
@@ -343,7 +362,7 @@ ReservationBookingSQL reservationBooking = new ReservationBookingSQL();
 
     <tr>
     <th>Amenities</th>
-    <td><%=wifi%> <%=breakfast%> <%=parking%></td>
+    <td><%=wifiString%> <%=breakfastString%> <%=parkingString%></td>
     </tr>
 
     <tr>
