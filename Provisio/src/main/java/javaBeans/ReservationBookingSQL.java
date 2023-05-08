@@ -256,7 +256,11 @@ public class ReservationBookingSQL {
 				
 				AccountDetails.currentReservationNumber = id;
 
-				System.out.println("inserted");
+				System.out.println("inserted"); 
+				
+				wificheckbox = 0;
+				breakfastcheckbox = 0;
+				parkingcheckbox = 0;
 
 				//PreparedStatement pstmt = conn.prepareStatement("INSERT INTO " + dbTable + "(reservationID, customerID, hotelID, checkIn, checkOut, guests, wifi, breakfast, parking) VALUES('" + id + "', '" + customerID + "', '" + hotelID + "', '" + checkin + "', '" + checkout + "', '" + guests + "', '" + wificheckbox + "', '" + breakfastcheckbox + "', '" + parkingcheckbox + "')");
 
