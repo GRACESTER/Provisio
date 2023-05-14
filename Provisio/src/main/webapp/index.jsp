@@ -42,7 +42,7 @@ if(confirmation > 0)
                     <div class="grid-item">       
                         <figure>
                             <h3>Hyatt - Los Angeles</h3>
-                            <img src="images/351/hotelImage.jpg" alt="pic1"/>
+                            <img src="images/351/hotelImage.jpg" alt="pic1" style="width:400px; height:300px;"/>
                             <figcaption>Upmarket Downtown hotel with Spanish Colonial styling.</figcaption>
                         </figure>
                     </div>
@@ -50,7 +50,7 @@ if(confirmation > 0)
                     <div class="grid-item">
                         <figure>
                             <h3> Edgewater - Seattle</h3>
-                            <img src="images/445/hotelImage.jpg" alt="pic2"/>
+                            <img src="images/445/hotelImage.jpg" alt="pic2" style="width:400px; height:300px;"/>
                             <figcaption>New American spot with views unlike any other.</figcaption>
                         </figure>
                     </div>
@@ -58,7 +58,7 @@ if(confirmation > 0)
                     <div class="grid-item">
                         <figure>
                             <h3> Blossom - Houston</h3>
-                            <img src="images/595/hotelImage.jpg" alt="pic3"/>
+                            <img src="images/595/hotelImage.jpg" alt="pic3" style="width:400px; height:300px;"/>
                             <figcaption>Refined quarters in an upmarket hotel.</figcaption>
                         </figure>
                     </div>
@@ -66,7 +66,7 @@ if(confirmation > 0)
                 </div> <!-- end of images -->
         
                 <div id="landing-page">
-                    <a href="Locations.jsp">Click here to book a hotel!</a>
+                    <a href="Locations.jsp">Click here to view destinations!</a>
                     
                 </div>
             </div> <!-- end content -->
