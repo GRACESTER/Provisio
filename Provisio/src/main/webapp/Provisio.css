@@ -103,13 +103,13 @@ h3{
     max-width: 800px;
 }
 #landing-page-gallery img {
-    width:150px;
-    height:150px;
+    width:550px;
+    height:550px;
     border: 3px solid blue;
     margin-left: 10%;
 }
 #landing-page-gallery figcaption {
-    text-align: center;
+    text-align: left;
     font-style: italic;
     border-bottom: 3px solid blue;
     border-left: 3px solid blue;
@@ -201,7 +201,7 @@ h3.attraction-title {
 
 #hotelPic
 {
-    width: 500px;
+    width: 800px;
     height: 100%;
     border: 3px solid blue;
     margin-left: 0px;
@@ -230,13 +230,13 @@ dd{
     justify-content: space-around;
     padding: 10px;
     padding-top: 10px;
-    background-color: #0252d4;
+    background-color: #237FE5;
 }
 #aboutus-gallery figure {
-    width: 75%;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 800px;
+    max-width: 200px;
 }
 #aboutus-gallery img {
     width:150px;
@@ -245,7 +245,8 @@ dd{
     margin-left: 10%;
 }
 #aboutus-gallery figcaption {
-    text-align: center;
+    text-align: center !important;
+    display:block;
     font-style: italic;
     border-bottom: 3px solid blue;
     border-left: 3px solid blue;
@@ -266,7 +267,7 @@ dd{
     size: 16px;
     padding: 30px;
     text-align: center;
-    background-color: #0252d4;
+    background-color: #237FE5;
 }
 
 

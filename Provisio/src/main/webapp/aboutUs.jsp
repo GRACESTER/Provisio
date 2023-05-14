@@ -25,30 +25,29 @@
 	     <div class="page-layout">
 			<%@ include file = "header.jsp" %>
 	
-	        <div class="content-about">
-	            
-	            <div id="aboutus-gallery">
-	                <div class="grid-item3">
+	        <div class="content-about">            
+	            <div id="aboutus-gallery" style="background-color:#237FE5;">
+	                <div style="width:35%;">
 	                    <figure>
-	                         <img src="images/building.png">
+	                         <img src="images/building.png" style="width:250px; height:200px;">
 	                        <figcaption> Provisio HQ. Sarasota, Florida </figcaption>
 	                    </figure>
 	                </div>
-	                <div class="grid-item4">
+	                <div style="width:50%;">
 	                    <figure>
-	                        <img src="images/agent.png">
+	                        <img src="images/agent.png" style="width:350px; height:200px;">
 	                        <figcaption>Our agents at work for you.</figcaption>
 	                    </figure>
 	                </div>
-	                <div class="grid-item5">
+	                <div style="width:35%;">
 	                    <figure>
-	                           <img src="images/medal.png">
+	                           <img src="images/medal.png" style="width:250px; height:200px;">
 	                           <figcaption>Our award from the World Travel Awards</figcaption>
 	                    </figure>
 	                </div>
 	            </div>
 	
-	            <div id="aboutus">
+	            <div id="aboutus" style="width:50%; margin-left:auto; margin-right:auto; background-color: white; color:  black;">
 	                <p> Provisio was  founded in 2021, shortly after the COVID-19 pandemic started coming to an end. At Provisio, we could see that people were yearning to get back out of the house and start exploring the world again. We want to make your travel booking experience as easy as possible so you can focus on doing the things that you love.   </p>
 	                <p> Our team as Provisio has taken the utmost care when looking for locations and attractions for our clients. We have a large number of specialists who are constantly on the hunt for the best deals and the most exclusive travel locations.   </p>
 	                <p> We are available 24/7, 365 days a year. Our specialists are always available to help you with your reservations and answer any last minute questions that you have. As a matter a fact, people are so satified by our service that we won Best Booking Website from the World Travel Awards in 2021 and 2022!</p>
@@ -56,7 +55,7 @@
 	                <b></b>
 	            </div>
 	
-	            <div id="contactus">
+	            <div id="contactus" style="color: white; font-weight:bold; background-color:#237FE5;">
 	                <p>Need some help? Email or call us using the information below: </p>
 	                <p>Reservations: reservations@provisio.com or 1-888-555-6778 </p>
 	                <p>Account Inquires: accounting@provisio.com or 1-888-555-0394 </p>

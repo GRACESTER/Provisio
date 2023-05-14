@@ -169,7 +169,7 @@ a.header-link:active {
 #reg-hotel-info
 {
 	
-	background-color: #0252d4;
+	background-color: #237FE5;
 	height: 200px;
 	width: 700px;
 	margin-left: auto;
@@ -182,7 +182,7 @@ a.header-link:active {
 #reg-hotel-form
 {
 	
-	background-color: #0252d4;
+	background-color: #237FE5;
 	/* height: 2000px; */
 	width: 700px;
 	margin: 0 auto;

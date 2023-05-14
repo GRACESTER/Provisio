@@ -178,7 +178,7 @@ input[type="checkbox"] {
     padding: 0 25px 0;
 }
 table {
-    background-color: #0252d4;
+    background-color: #237FE5;
     color: white;
     border-collapse: collapse;
     margin: 0 auto;

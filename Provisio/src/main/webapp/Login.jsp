@@ -145,12 +145,12 @@ h2 {
 .form-left {
     margin-right: 10px;
     border: 1px solid #ccc;
-    background-color: #0252d4;
+    background-color: #237FE5;
     border-radius: 4px;
 }
 .form-right {
     margin-left: 10px;
-    background-color: #0252d4;
+    background-color: #237FE5;
     border: 1px solid #ccc;
     border-radius: 4px;
 }	
